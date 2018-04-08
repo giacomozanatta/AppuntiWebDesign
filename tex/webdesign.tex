@@ -6,6 +6,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\newpage
 \section{Introduzione}
 \subsection{Evoluzione dei linguaggi}
 \begin{itemize}
@@ -306,4 +307,92 @@ Integrare questi due meccanismi permette ad un utente di navigare nel sisto attr
 Molti browser inoltre forniscono un supporto alla navigazione (aprire un url per accesso diretto, bookmarks, uso di colore nei link ipertestuali, tasti avanti e indietro). Non bisogna danneggiare questo sistema di navigazione (modificare colore link, rimuovere sottolineatura dei link, nascondere l'url di destinazione)
 \subsection{Costruire il contesto}
 È necessario costruire quindi un contesto, ad esempio includendo in tutte le pagine il nome dell'ente/azienda oppure un logo e presentando in tutte le pagine la struttura dell'informazione gerarchica e la posizione dell'utente rispetto ad essa.
+\subsection{Navigation Stress Test}
+È utile per verificare la capacità di un sito di rappresentare il contesto.
+Si parte da una pagina a caso, e si rispondono alle domande:
+\begin{itemize}
+	\item So dove sono?
+	\item In che sezione principale del sito mi trovo?
+	\item Qual'è la pagina padre di questa pagina?
+	\item Dove mi condurrà la pagina in cui mi trovo?
+	\item I link suggeriscono la destinazione?
+	\item I link sono abbastanza differenziati per aiutarmi a scegliere un link piuttosto che un altro?
+\end{itemize}
+\subsection{Tipologie di Sistemi di Browsing}
+Un sito complesso può includere diversi sistemi di navigazione.
+\subsubsection{Sistema Gerarchico}
+Gerarchia informativa, permette la navigazione da elementi padre ad elementi figlio, e viceversa.
+\subsubsection{Sistema Globale}
+Permette la navigazione verticale (da elementi padre a figlio, anche a passi maggiori di 1) e la navigazione orizzontale (tra elementi dello stesso padre).
+\subsubsection{Sistemi Locali}
+Sistema di navigazione utilizzato in un sottosito, cioè in una sezione del sito nella quale le unità informative sono legate da relazioni peculiari (es. catalogo online di un'azienda). È importante estendere il sistema Globale anche all'interno di sottositi.
+\subsubsection{Sistemi Ad hoc - Trasversali - Contestuali}
+Le relazioni tra contenuti informativi non riconducibili ad attraversamenti verticali o orizzontali della gerarchia, ad esempio i links contenuti nel corpo di un paragrafo (embedded links) oppure links evidenziati separatamente del layout della pagina.
+\subsection{Elementi di browsing integrati}
+\subsubsection{Menu di navigazione}
+È una collezione di links ipertestuali, sottoforma di testo, imagemap o immagini separate.\\
+La progettazione dell'architettura può influenzare la scelta dell'implementazione. Ad esempio, siti con aree in espansione o variabili scelgono soluzioni testuali. Per la navigazione globale è opportuno usare una barra grafica, per la navigazione locale una barra testuale.\\
+I menu permettono di effettuare la navigazione orizzontale all'interno del sito.\\
+\subsubsection{Shortcuts}
+Sono elementi di navigazione che risiedono tipicamente nella home page di un sito: possono essere singoli oppure utilizzati in gruppi.\\
+Permettono all'utente un accesso diretto a elementi che si trovano nei livelli più profondi della gerarchia informativa del sito (sono una navigazione verticale).\\
+Sono associati all'esigenza di rendere noto all'utente l'esistenza di un elemento o di un gruppo di elementi informativi.
+\subsubsection{Menu pop-up e pull-down}
+Permettono di rappresentare molti link in forma compatta, nascondono opzioni. Vegono utilizzati per effettuare selezioni secondarie oppure in contesti informativi molto affollati. È sconsigliato utilizzarli per le opzioni informative principali nei sistemi desktop (nei layout per smartphone invece è possibile utilizzarli per ottimizzare lo spazio).\\
+È opportuno che la riga di menù visibile indichi la tipologia dell'informazione.\\
+È possibile anche specificare eventi che possono attivare l'apertura del menu (ad esempio uno swipe, la pressione di un tasto, al passaggio del mouse).
+\subsubsection{Drawer}
+I drawer permettono di rappresentare links in forma compatta: può essere utile utilizzarli nei casi in cui sia necessario un livello di strutturazione elevato dei menu pop-up e pull-down.\\
+Vengono utilizzati nei dispositivi con uno schermo piccolo.
+\subsection{Sistemi di browsing}
+\begin{itemize}
+	\item Navigazione gerarchica (può essere molto limitante)
+	\item Navigazione globale
+	\item Navigazione locale
+	\item Navigazione trasversale
+	\subitem Embedded links (navigazione adhoc con link nel testo)
+	\subitem Navigazione trasversale
+	\subitem See also
+\end{itemize}
+\subsection{Elementi di browsing remoti}
+Sono elementi che forniscono un punto di vista esterno alla gerarchia base del sito.
+Sono utilizzati come complemento agli elementi di navigazione integrati.\\
+\subsubsection{Indice dei contenuti}
+Rappresenta i livelli della gerarchia informativa, l'indice attivo (che impiega link ipertestuali) facilità l'accesso non lineare ai contenuti.\\
+È utile utilizzarlo quando il sito ha un'organizzazione gerarchica.
+\subsubsection{Indice analitico}
+Alternativa per siti che non hanno ua forte organizzazione gerarchica.\\
+È utile per gli utenti che sanno quello che stanno cercando; gli elementi dell'indice devono puntare a componenti del sito dove prevalgono i contenuti piuttosto che a componenti dove prevalgono le strutture di navigazione.
+\subsubsection{Mappa del sito}
+È una rappresentazione grafica dell'architettura di un sito.\\
+La mappa evidenzia le relazioni tra le componenti informative.\\
+Deve rappresentare gli elementi informativi importanti e le loro relazioni in modo chiaro e significativo.\\
+Le mappe non si prestano ad una lettura TTSS, è preferibile quindi affiancare una mappa ad un indice dei contenuti.
+\subsubsection{Tour guidato}
+Utile per introdurre ai nuovi utenti i contenuti del sito. Dovrebbe avere una navigazione lineare ed essere eseguibile dalla home page del sito.
+\subsection{Sistemi di browsing personalizzati}
+Possiamo distinguerli in:
+\begin{itemize}
+\item Adattivi: le opportunità di navigazione vengono selezionati dal sistema in abse ad alcuni parametri, come il profilo dell'utente o lo storico di utilizzo.
+\item Adattabili: l'utente può scegliere diverse opzioni di navigazioni differenziate.
+\end{itemize}
+\subsection{Sistemi di navigazione sociale}
+Permettono all'utente di navigare il sito utilizzando l'attività di tagging degli altri utenti, si costruisce quindi una folksnomia in modo progressivo.\\
+Può essere l'unico sistema di navigazione oppure affiancarne un altro.
+\subsubsection{Tag clouds}
+Una folksonomia è rappresentata da una tagcloud, che esprime la frequenza di utilizzo dei tag attraverso la dimnesione del carattere tipografico. Può essere costruita a partire da una folksonomia allargata che ristretta. 
+\subsubsection{Interfaccia per l'inserimento di tag}
+Oltre all'interfaccia di navigazione può essere presente l'interfaccia di inserimento dei tags (nei sistemi di tipo bottom-up l'utente può contribuire ad arricchire la classificazione).
+\subsubsection{Integrazione nel layout delle interfacce di navigazione sociale}
+Le interfacce dei sistemi di navigazione possono essere presenti nel layout del sito specifico, nel layout di un altro sito che funge da collettore di tagging degli utenti sul web, oppure secondo modalità miste.
+\subsubsection{Utenti, risorse e annotazioni}
+\begin{enumerate}
+	\item Annotazioni top-down: i singoli siti forniscono all'utente fornitore di contenuti le interfacce per inserire risorse e annotarle. L'utente che gestisce la singola risorsa coincide con l'utente autorizzato ad annotare la risorsa (solo lui può annotare la risorsa). Abbiamo una integrazione totale dell'interfaccia di annotazione nel layout.
+	\item Annotazioni bottom-up tipo 1: le risorse informative e le annotazioni risiedono in unico repository. Le interfacce e le risorse per annotarle sono fornite da un gestore unico.\\
+	Abbiamo comunque un'integrazione totale delle interfacce di annotazione nel layout di presentazione, ma in questo caso è consentito ad utenti diversi l'annotazione di risorse gestite da altri.
+	\item Annotazioni bottom-up tipo 2: le risorse informative e le annotazione risiedono in siti diversi. È difficile quindi un'integrazione delle interfacce di annotazione nel layout di presentazione delle risorse informative.
+\end{enumerate}
+\subsubsection{Fake tagcloud}
+Esistono anche della tagcloud fake: in questo caso i contenuti della tagcloud, e la grandezza delle parole è una scelta redazionale, per mettere in risalto alcuni contenuti. In questo caso, non possiamo parlare di tagging sociale.
+\section{Sistemi di ricerca}
 \end{document}
