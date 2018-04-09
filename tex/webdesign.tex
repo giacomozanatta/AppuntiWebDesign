@@ -837,5 +837,69 @@ Riassumendo, a partire dalla definizione di un insieme di elementi strutturali n
 	\item Definizione nel file XHTML di una sequenza di elementi strutturali. La sequenza deve essere definita in modo tale che la semantica dei contenuti infomatici della pagina venga correttamente comunicata all'utente nel caso in cui venga utilizzato un convertitore TTS.
 	\item Definizione nel file XHTML di una sequenza di elementi strutturali compatibili con il layout già definito. La sequenza risultante deve essere tale che la semantica dei contenuti informativi della pagina venga correttamente comunicata all'utente nel caso in cui venga utilizzato un convertitore TTS.
 \end{enumerate}
+\section{Responsive Web Design}
+\subsection{Motivazioni}
+I siti responsive rispondono all'esigenza di avere una presentazione flessibile in corrispondenza della tipologia di dispositivo utilizzata dall'utente.  Queste nuove esigenze hanno evoluto le specifiche dei linguaggi per il web e dei dispositivi in grado di interpretarle.\\
+Oggi, la mancanza di un sito responsive è un problema.
+\subsection{Come viene utilizzato il responsive web design}
+Si può usare HTML, CSS, JavaScript. Esistono anche dei framework, che semplificano l'uso dei linguaggi e che incorporano tecniche di responsive web design.\\
+Anche i moderni CMS permettono di presentare i contenuti in modo appropriato per i diversi dispositivi attraverso l'uso di temi specifici che utilizzano tecniche di responsive web design.
+\subsection{La piramide di Layon}
+Layon ha definito con una piramide gli aspetti basiliari di un'esperienza per gli utenti del web mobile, che comprende alla base l'accesso all'informazione e alla sommità gli aspetti più evoluti dell'esperienza, permessi dall'utilizzo di tecniche legate ad HTML5.
+\subsubsection{Accesso}
+La base della piramide. Gli utenti necessitano di avere accesso all'esperienza. È necessario garantire agli utenti mobile gli stessi contenuti degli utenti desktop (content-parity) e garantire accesso ad un'esperienza completa.
+\subsubsection{Interazione}
+Il visitatore necessita di interagire con il contenuto e spostarsi attraverso l'informazione. 
+Ad esempio, per dispositivi mobile è posibile usare un menù fly-out o un drawer, oppure una dashboard.\\Gli strumenti per la navigazione devono essre equilibrati, nè troppo eccessivi nè troppo scarsi e difficili da raggiungere. \\
+È possibile anche usare tecniche di conditional loading, per fornire accesso a tutto il contenuto del sito senza che questo venga fornito tutto allo stesso momento.
+\subsubsection{Performance}
+È necessario tenere in considerazione le performance di caricamento delle pagine web. Pagine troppo pesanti non vanno bene in mobilità, devono caricarsi velocemente sennò l'utente abbandona la navigazione.
+\subsubsection{Enhance}
+È possibile rendere unica la navigazione da mobile fornendo funzioni che i desktop non hanno, migliorando l'esperienza.\\
+Ad esempio, è possibile inserire un bottone per fare una chiamata, usare la localizzazione...
+\subsection{Griglia tipografica flessibile}
+È possibile usare un layout scalabile, specificando la dimensione come percentuale della misura dell'eleento contenitore. Il design complessivo rimarrà invariato al variare delle dimensioni della finestra.\\
+È opportuno usare la stessa logica anche per il margine e il padding.
+\subsection{Reset Stylesheet}
+Sono collezioni di regole CSS associate alla pagine HTML, vengono introdotte per avere un punto di partenza comune per la presentazione per tutti i browser, rispetto al quale specificare poi le regole di stile.\\
+Se non si specifica un reset stylesheet, in assenza di specifiche i browser presentano le informazioni secondo un formato di default, diverso da ogni browser.
+\subsubsection{Caratteri tipografici flessibili}
+È possibile stabilire la regola di reset per i caratteri. Da questa regola è possibile poi, usando em, definire le grandezze dei font nelle varie situazioni.
+\subsubsection{Strumenti di navigazione e layout}
+È necessario fornire widget diversi a seconda della grandezza dello schermo a disposizione (drawer a scomparsa per smartphone/tablet, menu orizzontale per desktop).
+\subsection{Immagini flessibili}
+L'inserimento di un immagine di grandezza fissa in un layout flessibile è un problema.\\
+È possibile stabilire dei vincoli, ad esempio max-width nel css, per stabilire una grandezza massima per l'immagine. Se l'immagine è più piccola del box contenitore, sarà renderizzata secondo le sue dimensioni, se è più grande, verrà riscalata in modo da non superare i limiti del contenitore.\\
+La suddetta regola è possibile applicarla anche ad altri elementi a larghezza fissa (video, rich media).\\
+Il nostro caro IE fino alla versione 6 non supporta la proprietà max-width (REALLY?). Per risolvere i problemi di compatibili o si usa JavaScript oppure è possibile usare i commenti condizionati. \\
+Per evitare problemi di visualizzazione dovuto a riscalatura dell'immagine è possibile utilizzare AlphaImageLoader, un filtro CSS che permette di incrementare drasticamente la qualità del rendering.
+\subsubsection{Immagini di background flessibili}
+Usare immagini di sfondo può essere utile per distinguere il fondo di due colonne di testo. Viene utilizzato un background sull'elemento che contiene entrambe le colonne, simulando in questo modo l'esistenza di due colonne colorate. Con div, infatti non si riesce ad ottenere un background di eguale altezza.\\
+Per risolvere problemi di dimensioni dell'immagine (questa soluzione di basava su layout a dimensione fissa), è possibile creare una immagine più estesa della dimensione degli schermi finora utilizzati nella quale vengono definite proporzionalmente le due partizione delle colonne, usando un tool di manipolazione di immagini raster.\\
+L'immagine viene poi posizionata come sfondo dell'oggetto contenitore delle due colonne, utilizzando una regola CSS nella quale viene indicata la sorgente, la ripetizione verticale e la posizione in percentuale.
+\subsubsection{Alternativa per il background}
+È possibile utilizzare la regola CSS overflow:auto o overflow:hidden applicata al contenitore delle colonne.\\
+Questa regola permette di ottenere due colonne con campiture colorate differenziate.\\
+In pratica viene assegnato un colore di sfondo al contenitore delle due colonne e alla colonna con il contenuto più lungo. L'altra colonna non viene colorata.\\
+\subsubsection{Overflow delle immagini}
+Si può usare il clipping (visualizzazione di una sola parte dell'immagine) per mettere vincoli sulla grandezza dell'immagine.
+\subsection{Media queries}
+La specifica CSS ha definito nella versione 2 i media type, dando la possibilità di assegnare un set di regole specifiche ad un media specifico: braille, embossed, handheld, print, projection, screen, speech, tty, tv.\\
+È possibile avere tanti CSS, uno per ogni stile, oppure definendo specifiche sezione all'interno di uno stesso foglio di stile. Purtroppo, per i dispositivi handheld, questa soluzione si è rilevata troppo grossolana (dispositivi sono troppi e troppo differenti).\\
+CS3 ha permess0, grazie alle media queries, di rendere meno grossolana la suddivisione tra le classi diverse di dispositivi, consentendo di identificare un insieme di proprietà che caratterizzano il browser utilizzato dall'utente.
+\subsubsection{Alcune definizioni}
+\begin{itemize}
+	\item superfice di rendering: area dello schermo del dispsitivo.
+	\item display area: spazio utile per la presentazione dei contenuti nella pagina web. Per i media continui, questo spazio corrisponde alla viewport (area attraverso la quale l'utente può visualizzare il contenuto renderizzato sulla canvas). Per i media non continui (paged media), ossia che suddividono il contenuto in pagine, corrisponde al page box.
+\end{itemize}
+\subsubsection{Breakpoints}
+Possiamo utilizzare le media queries per descrivere regole diverse di presentazione. Possiamo definire dei breakpoint rispetto ai quali poi definire regole di presentazione che forniscono il risultato migliore nelle diverse situazioni.\\
+\includegraphics[width=9cm]{breakpoint}\\
+\subsubsection{Mobile first}
+\subsection{Relazione tra viewport e dispositivo}
+\subsection{Non ci sono più i pixel di una volta}
+\subsection{Immagini High-DPI}
+\subsection{Conditional Loading}
+\subsection{Responsive Tables}
 
 \end{document}
