@@ -651,4 +651,56 @@ NB: font non può essere un contenitore della tabella (se vogliamo cambiare test
 \end{enumerate}
 \subsection{Tabelle come griglie strutturali di una pagina}
 Per definire la griglia strutturale della pagina, molti siti antichi utilizzavano una tabella costituita da 2 o più celle.  Bisogna però stare attenti ai margini, perchè una tabella viene posizionata rispettando i margini del browser.
+\section{CSS}
+I fogli stile permettono di applicare regole di presentazione agli elementi che caratterizzano una pagina XHTML. Un foglio di stile è un CSS (Cascading Style Sheet), dove con cascading ci riferiamo al fatto che l'informazione di stile può essere definita a più livelli, generando alla fine un unico folgio di stile virtuale nella quale si compongono tutte le regole provenienti da origine diverse e con specificità diverse.\\
+I vantaggi sono: stile e struttura separati, maggior controllo sui caratteri e sul layout della pagina, produzione di documenti più piccoli, manutenzione più facile del sito, facilità di apprendimento.\\
+Lo svantaggi principalmente è uno solo: il supporto dei browser del passato.
+\subsection{Evoluzione dei CSS}
+\begin{enumerate}
+	\item CSS1: 1996
+	\item CSS2: 1998 (include metodi avanzati per il posizionamento degli elementi, in grado di sostituire tabelle e frames)
+	\item CSS 2.1: 2011
+	\item CSS 3: 2011 (selettori e colori)
+\end{enumerate}
+\subsection{Regole di sintassi}
+CSS contengono una o più regole per descrivere la presentazione di un elemento nella pagina.\\
+La sintassi è composta da: selettore \{ proprietà: valore; \} \\
+Il selettore identifica l'elemento che verrà condizionato dalla  regola. La dichiarazione (composta da coppie proprietà/valori) specifica lo stile da applicare al'elemento. I valori sono dipendenti dalle proprietà.\\
+\subsection{Selettori}
+o 2 tipi di selettori (i selettori sono la parte della regola che identifica l'elemento a cui lo stile viene applicato):
+\begin{enumerate}
+	\item selettori di tipo: selettori semplici, possono venire raggruppati in liste separati da virgole. ( li \{ color: green \} , tutti i li avranno il colore verde)
+	\item selettori contestuali: specificano attributi di stile basati sul contesto (li em \{ color: gree \} , tutti gli em dentro i li avranno il colore verde).Possono venire raggruppati in liste separati da virgole. Hanno la precedenza sui selettori semplici.
+\end{enumerate}
+\subsection{Ereditarietà}
+La maggior parte (ma non tutte) le proprietà di stile vengono trasmesse o ereditate dai livelli più alti nella gerarchia dei tag XHTML a quelli più bassi.\\
+Gli stili applicati a elementi specifici del documento hanno la meglio sugli stili applicati a livello più alto.
+\subsection{Class}
+Class è un selettore, identifica un insieme di elementi come parte di un gruppo concettuale. Gli elementi di una classe possono essere modificati con una singola regola di stile. Per specificare lo stile è necessario aggiungere il nome della classe al selettore di tipo, separato da . oppure omettere il nome della classe e scrivere solo il selettore di tipo, preceduto da '.'\\
+È possibile associare più classi ad un elemento html, separando i valori con uno spazio.
+\subsection{Id}
+Un id viene utilizzato per identificare un elemento univoco nel file XHTML. \\
+Per specificare lo stile è necessario usare \#id . 
+È possibile utilizzare classi e id per definire il contesto di applicazione di una regola. 
+\subsection{Pseudo-selettori}
+Vengono interpretati dal browser in base al contesto. Sono indicati dal carattere : .\\
+In CSS1 ci sono gli pseudo-elementi, sono first-line e first-letter e permettono di applicare stili alla prima riga o lettera di un elemento XHTML.\\
+Possono essere combinati con l'attributo class.\\
+CSS2 specifica 4 pseudo-classi che possono essere applicate al tag $<a>$: link, visited, active, hover.
+\subsection{Aggiungere stili ad un documento}
+In 3 modi:
+\begin{itemize}
+	\item Inline Styles: utilizzati soprattutto per gestire le eccezioni.
+	\item Embedded Style Sheets: blocco con informazioni di stile all'interno del tag style di head. Possiamo specificare il media (screen ,tty, print, all, ...).
+	\item Foglio di stile esterno collegato (con funzione import o con tag link).
+\end{itemize}
+\subsection{La cascata}
+Tutte le regole di stile fluiscono in un unico foglio di stile virtuale, dove possono generarsi dei conflitti. Per risolvere questi conflitti, le regole CSS hanno delle priorità.
+\begin{enumerate}
+	\item Raccogli tutte le regole che riguardano un determinato elemento HTML.
+	\item In caso di conflitto, stabilisci la priorità in base all'origine delle regole (in ordine, dalla meno prioritaria alla più prioritaria: settaggi del browser, foglio di stile dell'utente, fogli di stile esterni con link, fogli di stile esterni con import, fogli di stile embeded, inline style, attributi html). Usando l'indicatore !important dopo il valore della proprietà, possiamo aumentare al massimo la priorità di quella regola 
+	\item In caso di ulteriore conflitto, si considera la specificità del selettore CSS, considerando come più importanti il riferimento ad id e il loro numero, il riferimento ad attributi e classi e il loro numero, il riferimento ad elementi html e il loro numero.
+	\item In caso di ulteriore conflitto, considera come più importante la regola che è stata scritta per ultima.
+\end{enumerate} 
+
 \end{document}
