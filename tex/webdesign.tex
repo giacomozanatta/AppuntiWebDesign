@@ -449,4 +449,128 @@ Succede per le situazioni in cui i tags costituiscono il sistema prevalente di c
 È importante rendere consapevole l'utenza che la ricerca delle informazioni avviene sull'insieme dei tags e non sull'insieme delle parole che compongono la pagina web.\\
 \subsection{Trovabilità}
 La trovabilità è definita come $ Finding = Searching + Browsing$. Per aumentare la trovabilità degli elementi è necessario quindi integrare le due modalità di navigazione di un sito, rendendo possibile passare da una navigazione ad un'altra in modo semplice.
+\section{HTML}
+Formato non proprietario basato su SGML e può essere creato e manipolato da una vasta gamma di tool.\\
+SGML è un sistema di regole per definire linguaggi basati su marcatori. Stabilisce il sistema di descrivere documenti in termini di struttura, indipendentemente dall'apparenza.\\
+HTML utilizza un sottoinsieme delle caratteristiche di SGML. Gli elementi di una pagina web sono identificati da marcatori (tag) che danno istruzioni al browser sul ruolo dell'elemento e sulla modalità di visualizzazione del contenuto.\\ 
+HTML si basa sul principio di mantenere separata l'informazione relativa allo stile dalla struttura del documento.
+\subsection{Timeline di HTML}
+\begin{itemize}
+	\item HTML
+	\item HTML 2.0 (1995)
+	\item HTML 3.2 (1997)
+	\item HTML 4.0 (1997)
+	\item HTML 4.01
+	\subitem XHTML 1.0
+	\subitem XHTML Basic (browser web per palmari)
+	\subitem XHTML 1.1 (basato sul framework di modularizzazione)
+	\subitem XHTML Mobile Profiler 1.0 (sviluppato da Nokia, per mobile phone)
+	\subitem XHTML 2.0 
+	\item HTML 5
+\end{itemize}
+Mentre XHTML 2.0 (evoluzione di XHTML 1.1) è XML puro, HTML 5 rimane compatibile con gli standard precedenti e fornisce estensioni per lo sviluppo di applicazioni. 
+\subsection{Tag HTML}
+Un tag X/HTML è racchiuso tra $<$ e $>$. Il tag è formato dal nome dell'elemento seguito da una lista (opzionale) di attributi. Abbiamo due tipologie di tag:
+\begin{itemize}
+	\item Elementi non vuoti: $<elemento>testo</elememnto>$
+	\item Elementi vuoti: $<elemento />$
+\end{itemize}
+Lo standard XHTML richiede sempre il tag finale, opzionale in HTML. Se il contenuto non è presente, va sempre utilizzata la forma con tag iniziale e tag finale per compatibilità con i browser HTML. 
+\subsubsection{Elementi vuoti}
+Alcuni tag non richiedono il tag dinale. Va inserito i carattere / prima della fine del tag.\\
+È opportuno inserire uno spazio prima del carattere / per compatibilità con i vecchi browser.
+\subsubsection{Nidificazione di Tag}
+Un tag può essere inserito all'interno di un altro tag. Non è possibile sovrapporre i tag. \\
+Documenti XHTML sono ben formati se tutti gli elementi hanno il tag di chiusura e sono annidati correttamente.
+\subsubsection{Attributi di tag}
+Gli attributi vengono aggiunti per estendere o modificare le azioni di un tag.\\
+Va inserito sempre nel tag iniziale, è possibile inserire molti attributi, separati da spazio. Non è importante l'ordine.\\
+Tutti i tag e attributi devono essere scritti con lettere minuscolo e i valori degli attributi devono essere racchiusi tra doppi apici (richiesto in XHTML).\\
+I valori degli attributi possono venire scritti sia maiuscoli che minuscoli. \\
+In HTML 5, esiste l'attributo booleano, con una sintassi semplificata. La presenza dell'attributo indica un valore true, la sua assenza false.\\
+Se dobbiamo utilizzare caratteri speciali ( $<,>$ e $ " \; "$, ) come parte del valore di un attributo possiamo usare stringhe alternative dette CER (es. $\& quot;$, $ \& lt;$ ).
+\subsection{Caratteri ignorati}
+In una pagina HTML vengono ignorati:
+\begin{itemize}
+	\item Interruzioni di linea
+	\item Taulatori e spazi multipli
+	\item Tag $<p>$ nidificati
+	\item Tag sconosciuti
+\end{itemize}
+\subsection{Struttura di un documento XHTML 1}
+Un documento XHTML 1.0 è composto da:
+\begin{itemize}
+	\item Prologo XML (opzionale)
+	\item Dichiarazione del tipo di documento ($<!DOCTYPE>$)
+	\item Sezione di testa ($<head>$)
+	\item Corpo del documento ($<body>$)
+\end{itemize}
+L'head e il body devono comparire all'interno del tag $<html>$.
+\subsubsection{Prologo XML}
+Serve a specificare la versione XML e la codifica dei caratteri.\\
+W3C ne raccomanda l'utilizzo, ma alcuni browser non lo gestiscono correttamente. Per inserire la codifica dei caratteri al di fuori del prologo è possibile inserire un elemento content-type nella sezione head del documento.
+\subsection{Specifica dei caratteri}
+È necessario stabilire una relazione tra i singoli caratteri utilizzati e il codice numerico che li rappresenta.\\
+Diversi standard effettuano questa mappatura:
+\begin{itemize}
+	\item Famiglia ISO-8859: set di caratteri multilingua a 8 bit per scrivere in lingue alfabetiche (ad esempio, Latin-1, Latin-2).\\
+	Ha una scarsa portabilità del testo al di fuori di ambiti regionali, ma anche tra sistemi operativi diversi (nei primi anni del Web Windows e MacOs utilizzavano standard proprietari)
+	\item Unicode: standard universale, codifica tutti i caratteri utilizzati nei linguaggi scritti utilizzati in tutto il mondo.
+\end{itemize}
+È inoltre possibile, per identificare un carattere, utilizzare una stringa CER ($ \& \# nnnn$, dove nnnn sono i riferimenti numeri ad un elemento del set di caratteri espressi in forma decimale o esadecimale (in quest'ultimo caso, prima del riferimento, va inserita una x, xnnnn)). Oltre ad usare un codice numerico, è possible utilizzare un nome ($\& name$).\\
+Le nuovi versioni dei Sistemi Operativi supportano unicode, rendendo quindi inutile le CER. CER comunque permette una corretta compatibilità verso i sistemi meno recenti.
+\subsection{DTD (Document Type Definition)}
+Un documento X/HTML valido deve iniziare con una dichiarazione nella quale si dice quale versione di X/HTML viene utilizzata. \\
+Ogni versione  è definita da una DTD, che ne descrive in un liguaggio preciso e leggibile da computer la sintassi e la grammatica permesse nel documento.\\
+I DTD sono disponibili online.\\
+Quando il documento XHTML viene esaminato da un validatore, il contenuto viene validato rispoetto ad DTD indicato. \\
+HTML 4 E XHML 1.0 fanno riferimento a 3 diverse DTD che includono 3 diversi sottoinsieme di tag consentiti nel documento (questo perchè questi formati sono formati di transizione):
+\begin{itemize}
+	\item STRICT: codice XHTML privo di tag o attributi di presentazione
+	\item TRANSITIONAL: documento con tag di presentazione
+	\item FRAMESET: da utilizzare se il documento utilizza, oltre ai tag previsti dal TRANSITIONAL, anche le frames.
+\end{itemize}
+\subsection{Il tag $<html>$}
+Contiene una dichiarazione di namespace.\\
+Un namespace fornisce un metodo per qualificare elementi ed attributi utilizzati da un documento XML, associandoli con i namespaces identificati da un riferimento URI.\\
+Per documenti che fanno riferimento a vocabolari multipli, viene descritto un meccanismo che assegna nomi espansi ed attributi per ottenere un'identificazione unifica, ad esempio usando i attributi xml:lang e lang per specificare la versione xml e la lingua del documento.\\
+\subsection{Conformità}
+Un documento XHTML è conforme se:
+\begin{itemize}
+	\item l'elemento radice è head.
+	\item l'elemnto radice deve indicare lo spazio dei nomi di XHTML usando l'attributo xmlns.
+	\item prima della radice deve esserci una dichiarazione di DOCTYPE, il quale conterrà un'identificatore che si deve riferire ad una delle 3 DTD (strict, transitional, frameset).
+	\item deve essere validato rispetto ad una delle 3 dtd.
+\end{itemize}
+\subsection{Il tag $<head>$}
+Non ha attributi, contiene tag utilizzati per definire i contenuti del documento:
+\begin{itemize}
+	\item $<title>$: descrizione contenuti della pagina. Elemento importante per l'indicizzazione.Obbligatorio in XHTML 1.0. Solo caratteri ascii.
+	\item $<base>$: localizzazione base sul server web, da utilizzare come riferimento per i links presenti nel documento.
+	\item $<link>$: definisce la relazione con un altro documento (usato ad es. per collegare il documento ad un foglio di stile)
+	\item $<script>$
+\end{itemize}
+\subsubsection{Il tag $<meta>$}
+Il tag meta è presente in head, ed è utilizzato per molti scopi. I dati inclusi nel tag sono utili per server, browser, e sono invisibili al navigatore.\\
+È necessario specificare l'attributo content, per fornire un valore all'informazione.
+Ci sono due categorie di tag meta:
+\begin{itemize}
+	\item http-equiv: viene processata come se provenisse da un header di risposta http. Fornisce di conseguenza informazioni che condizionano le modalità con le quali il browser manipola il docuemento.\\
+	L'attributo http-equiv con valore content-type permette di specificare il set di caratteri utilizzati.
+	\item name: permette di inserire informazioni riguardanti il documento (descriptions, keywords, author, robots (per prevenire l'indicizzazione), rating...).
+\end{itemize}
+\subsection{Il tag $<body>$}
+Contiene le informazioni che verranno presentata all'utente sulla pagina.\\
+Nel passato sono stati definiti un insieme di tag di presentazione, ora deprecati.
+\subsection{HTML 5}
+\subsubsection{Struttura di un documento HTML 5}
+\includegraphics{structhtml5}\\
+\subsubsection{Doctype}
+La dichiarazione di tipo del documento viene semplificata: HTML 5 supporta il contenuto esistente di HTML 4.01 o di XHTML 1.0, e le versioni successive dovranno supportare il contenuto di HTML 5. Quindi non è necessario specificare la vesione di HTML.
+\subsubsection{Codifica dei tag e attributi}
+Puoi scrivere come vuoi, puoi scegliere di mettere le virgolette o meno, di scrivere i tag in maiuscolo...
+\subsubsection{Obsolescenza}
+Non ci sono attributi deprecati, ma solo obsoleti, perchè si vuole mantenere la compatibilità con il passato.\\
+Un documento con elementi o attributi obsoleti sarà non conforme.\\
+Tuttavia, alcuni elementi di presentazione sono stati ridefiniti per superare i limiti passati.
 \end{document}
