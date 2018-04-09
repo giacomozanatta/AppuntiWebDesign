@@ -395,4 +395,58 @@ Le interfacce dei sistemi di navigazione possono essere presenti nel layout del 
 \subsubsection{Fake tagcloud}
 Esistono anche della tagcloud fake: in questo caso i contenuti della tagcloud, e la grandezza delle parole è una scelta redazionale, per mettere in risalto alcuni contenuti. In questo caso, non possiamo parlare di tagging sociale.
 \section{Sistemi di ricerca}
+\subsection{Quando implementare un sistema di ricerca?}
+\begin{itemize}
+	\item Quando abbiamo molta informazione da percorrere attraverso sistemi di browsing
+	\item Quando il sito è costituito da componenti frammentati
+	\item Quando dobbiamo imparare dagli utenti (analisi search-logs)
+	\item Quando gli utenti si aspettano che ci sia
+	\item Quando il sito è dinamico
+\end{itemize}
+\subsection{Zone di ricerca}
+Non è sempre opportuno indicizzare tutto il sito.\\
+Creare search-zones riduce l'effetto apple-and-oranges, ossia la ricerca effettuata su aree eterogenee di contenuti che può essere un ostacolo al ritrovamento dell'informazione.\\
+Le zone di ricerca sono parti di sito che sono state indicizzate separatamente.\\
+Si possono creare suddividendo logicamente o fisicamente i documenti. È possibile crearla a partire da schemi e strutture organizzative.\\
+Con le zone di ricerca però andiamo ad aggiungere un ulteriore complessità alla ricerca.
+\subsection{Pagine di destinazione e navigazione}
+Le pagine di destinazione contengono il contenuto vero e proprio.\\
+Le pagine di navigazione hanno lo scopo di condurre gli utenti verso le pagine di destinazione. Non vengono indicizzate.\\
+Spesso, le pagine appartengono ad entrambe le categorie.
+\subsection{Componenti di una pagina}
+La nascita dei sistemi CMS (Content Management System) rende più facile l'identificazione degi elementi della pagina (contenuto informativo, menu di navigazione, pubblicità, disclaimers...) e la loro inclusione o meno dall'indicizzazione. Usare un CMS permette di selezionare gli elementi da indicizzare ad un livello di granularità più accurato rispetto a quello della pagina.
+\subsection{Presentare i risultati}
+\subsubsection{Quali?}
+\begin{itemize}
+	\item mostrare come risultato all'utente che sa quello che sta cercando meno informazione rispetto a quella presentata all'utente che non sa quello che sta cercando.
+	\item Agli utenti del primo caso possono bastare alcuni elementi rappresentativi del contenuto.
+	\item La seconda categoria di utenti richiede contenuti più descrittivi.
+	\item In alcuni casi, l'utente può scegliere cosa visualizzare.
+\end{itemize}
+\subsubsection{Quanti?}
+Dipende da due fattori, dalla quantità di componenti informativi per componente e dalla caratteristica del dispositivo.\\
+Si parte dalla presentazione di un gruppo limitato di documenti (10 per pagina) e si lascia la laibertà di configurare al sistema.\\
+È opportuno visualizzare il numero complessivo di documenti ritrovati e fornire un sistema di browsing per permettere una rapida navigazione tra i risultati.
+\subsubsection{Elencare i risultati}
+Esistono due metodi per elencare i risultati.\\
+Sorting: i risultati vengono ordinati secondo un criterio basato su una della componenti del documenti (utile quando l'utente deve comparare due o più documenti).\\
+Ranking: risultati ordinati con criteri come la rilevanza del documento, dedotta analizzandone i contenuti (condiderando quanti termini della query sono presenti nel documento e quante volte, la vicinanza e la locazione di questi termini)o la sua popolarità. (ad esempio PageRank di Google). Oppure può essere realizzato un ranking attraverso il giudizio di esperti, i quali valutano il valore dell'informazione, o attraverso un modello pay-for-placement.
+\subsubsection{Ragruppare i risultati}
+Una tecnica alternativa (o complementare) al Sorting e al Ranking consiste nel raggruppare i risultati in base a qualche aspetto comune.\\
+Come possiamo raggruppare i risultati? Attraverso l'utilizzo di metadati (tipo di documento, data creazione), attraverso l'uso di metadati applicati manualmente (audience, contenuto, tags). Alcuni tool cercano di derivare autonomamente alcuni cluster di contenuti considerando i contesti possibili a partire da una keyword inserita dall'utente.
+\subsubsection{Esportare i risultati}
+Un utile complemento può essere quello di esportare i risultati (stampare, inviare via mail, salvare).\\
+Quando si vuole salvare un insieme di elementi interessanti è utile fornire una selezione di un sottoinsieme di risultati.\\
+Il salvataggio di una ricerca, inoltre, è un'alternativa utile per i domini dinamici, per i quali la riesecuzione dell'interrogazione in un altro momento può portare nuovi risultati.
+\subsection{L'interfaccia di ricerca}
+È necessario mantenere l'interfaccia di ricerca il più semplice possibile. L'utente non deve utilizzare operatori logici, non deve preoccuparsi di utilizzare un vocabolario controllato e la ricerca viene fatta sull'intero sito.\\
+Per educare l'utente è possibile creare una pagina di consigli, oppure inserire la possibilità di restringere la ricerca ad una search zone o inserendo un collegamento ad un modulo di ricerca avanzata.
+\subsection{L'interfaccia per i risultati}
+È necessario fornire un supporto alla revisione, ad esempio descrivendo gli eventuali filtri applicati, mostrando gli operatori booleani applicati implicitamente alla ricerca, mostrando le caratteristiche utilizzate per la presentazione (ad esempio il tipo di sorting) ed evidenziando il numero dei risultati ottenuti dalla ricerca.
+\subsection{Interfacce di ricerca basate sulla classificazione sociale}
+In alcune situazione sono disponibili sistemi di ricerca dei tags.\\
+Succede per le situazioni in cui i tags costituiscono il sistema prevalente di classificazione dell'informazione o nei sistemi caratterizzati dalla presenza di molti tags associati alle risorse.\\
+È importante rendere consapevole l'utenza che la ricerca delle informazioni avviene sull'insieme dei tags e non sull'insieme delle parole che compongono la pagina web.\\
+\subsection{Trovabilità}
+La trovabilità è definita come $ Finding = Searching + Browsing$. Per aumentare la trovabilità degli elementi è necessario quindi integrare le due modalità di navigazione di un sito, rendendo possibile passare da una navigazione ad un'altra in modo semplice.
 \end{document}
