@@ -816,4 +816,26 @@ Fixed è un caso speciale dell'absolute. Un elemento fixed non si muove quando l
 Gi elementi posizionati in maniera assoluta possono sovrapporsi. Lo stacking context e la proprietà z-index determinano quale elemento dovrà apparire di fronte ad un altro.\\
 Un elemento in posizone assoluta crea uno stacking context locale: consideriamo il valore di z-index associata ai diversi elementi del contesto, valori elevati hanno una precedenza nella visualizzazione. Se due elementi hanno lo stesso valore, l'ordine è quello del codice sorgente (elemento scritto prima sta dietro). È possibile applicare valori negativi di z-index.\\
 Quando si sovrappongono elementi che appartengono a stacking context diversi, questi vengono mostrati davanti o dietro a seconda del livello di stack del loro elemento contenitore definito da z-index.
+\section{CSS - Parte 3}
+\subsection{Layout tabellari}
+\subsubsection{Layout ibridi (tabelle + CSS)}
+Vantaggi: miglior supporto da parte di browser di vecchia generazione. Maggior facilità nel definire le relazioni tra i diversi elementi che costituiscono il layout (ogni elemento è associato ad una cella di tabella, è possibile anche avere tabelle nidificate). Parziale integrazione con CSS.\\
+Svantaggi: l'uso delle strutture tabellari per costruire layout è solo tollerato dal W3C. Difficoltà di produrre versione specifiche di layout per smartphone o palmari a causa della rigidità della struttura tabellare.
+\subsubsection{Layout CSS}
+Vantaggi: la costruzione dei layout CSS basati su marcatori strutturali (come div) permette una migliore separazione tra contenuto e presentazione. Esiste una vasta gamma di relazioni spaziali definibili per la presentazione dei diversi elementi strutturali. Maggiore libertà nel produrre presentazioni specifiche per palmari o altri formati.\\
+Svantaggi: buon supporto per le regole più complesse solo per browser di ultima generazione. Difficoltà maggiore nella fase di authoring nel definire le relazioni tra i diversi elementi che costituiscono il layout.\\
+Riassumendo, a partire dalla definizione di un insieme di elementi strutturali nel file XHTML è possibile definire nelle regole di stile associate una vasta gamma di relazioni spaziali tra questi elementi. Gli elementi strutturali possono essere:
+\begin{itemize}
+	\item definite in piena libertà nelle loro caratteristiche dimensionali
+	\item affiancati orizzontalmente o verticalmente
+	\item nascosti (parzialmente o totalmente)
+	\item sovrapposti
+	\item presentati secondo una sequenzialità diversa rispetto a quella definita nel codice XHTML.
+\end{itemize}
+\subsection{Metodologie di progettazione per layout CSS}
+\begin{enumerate}
+	\item Definizione nel file XHTML di una sequenza di elementi strutturali. La sequenza deve essere definita in modo tale che la semantica dei contenuti infomatici della pagina venga correttamente comunicata all'utente nel caso in cui venga utilizzato un convertitore TTS.
+	\item Definizione nel file XHTML di una sequenza di elementi strutturali compatibili con il layout già definito. La sequenza risultante deve essere tale che la semantica dei contenuti informativi della pagina venga correttamente comunicata all'utente nel caso in cui venga utilizzato un convertitore TTS.
+\end{enumerate}
+
 \end{document}
