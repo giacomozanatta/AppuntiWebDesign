@@ -702,5 +702,118 @@ Tutte le regole di stile fluiscono in un unico foglio di stile virtuale, dove po
 	\item In caso di ulteriore conflitto, si considera la specificità del selettore CSS, considerando come più importanti il riferimento ad id e il loro numero, il riferimento ad attributi e classi e il loro numero, il riferimento ad elementi html e il loro numero.
 	\item In caso di ulteriore conflitto, considera come più importante la regola che è stata scritta per ultima.
 \end{enumerate} 
-
+\section{CSS - Parte 2}
+I fogli di stile considerano ogni elemento della pagina come se fosse contenuto all'interno di una scatola.\\
+Il contenuto vero e proprio ha una determinata larghezza (width), è circondato da un margine interno (padding), da un bordo (border) e da un margine esterno (margin).\\
+Qualsiasi sfondo applicato ad un elemento si estende nello spazio del padding e sotto il bordo.
+\subsection{Proprietà CSS dei contenitori}
+\begin{enumerate}
+	\item margin-top, margin-right, margin-bottom-margin-left: specifica le dimensioni del margine in maniera individuale nei quattro lati.
+	\item margin: forma abbreviata, specifichiamo tutte le dimensioni dei margini in una sola regola.
+	\item padding-top, padding-right, padding-bottom, padding-left: specifica la dimensione del padding.
+	\item padding
+	\item border-top-width, border-right-width, border-bottom-width, border-left-width
+	\item border-width
+	\item border-color
+	\item border-style: specificare lo stile del bordo.
+	\item border-top, border-right, border-bottom, border-left: specifica dimensione, colore, stile del bordo in una sola regola (una per ogni lato)
+	\item border
+	\item width: larghezza dell'elemento
+	\item height: altezza dell'elemento.
+\end{enumerate}
+\subsection{Come funziona il box model}
+Si assegnano in maniera addittiva valori al contenuto, al margine interno, al bordo e al margine eterno. La larghezza totale del box sarà quindi la somma di tutto.\\
+Attenzione, perchè vecchie versione di IE (fino a 5.5) interpretavano in modo diverso il box model: larghezza e altezza del contenuto venivano riferite al box intero, margini esterni compresi.\\
+Per i box senza margini e bordi non abbiamo problemi, per gli altri possiamo usare diversi stratagemmi:
+\subsubsection{Div nidificati}
+È possiible usare 2 div nidificati, uno per il box interno e uno per quello esterno.\\
+Per avere una grandezza corretta, dichiariamo indirettamente la larghezza complessiva del boxx interno attraverso la dichiarazione della larghezza del contenuto del box esterno. Per il box interno definiamo solo le caratterstiche del bordo interno e del padding.\\
+Il limite è he vengono generati elementi di markup non strutturali.
+\subsubsection{Regola di Tantek}
+Usando un errore di interpretazione di IE 5, possiamo fornire una falsa dimensione e sovrascriverla in seguito con la dimensione reale.
+\subsubsection{Escape Hack}
+Si utilizza in questo caso una diversa interpretazione del carattere di escape da parte di IE 5.\\
+La maggior parte dei browser ignora questa carattere, mentre su IE questo carattere rende illegibile il carattere seguente.
+\subsubsection{Commenti condizionati}
+Sono una forma particolare di commenti, visti come veri commenti HTML da parte di quasi tutti i browser ad eccezione di IE (dalla ver. 5 alla 9). Possiamo usare i commenti condizionati per definire sezioni specifiche di HTML leggibili solo da IE.
+\subsection{Modello di formattazione visuale}
+Ogni elemento dell'albero del documento genera zero o più box, secondo il modello di box definito da CSS. La disposizione di questi box dipende da diversi fattori:
+\begin{itemize}
+	\item dimensioni e tipo di box
+	\item schema di posizionamento
+	\item relazioni tra gli elementi nell'albero del documento
+	\item informazioni esterne
+\end{itemize}
+\subsection{Tipi di box}
+Esistono due tipi di box: block box (generato da elementi come p, div o table: box come un rettangolo), o inline box(generati da span, img o da testo non struttura, ha una struttura visuale meno caratterizzata e può essere renderizzato su più righe).
+È possibile modificare la tipologia di default atraverso la proprietà display:
+\begin{enumerate}
+	\item display:block: l'elemento genera un block box, anche se di default era inline.
+	\item display:inline: l'elemento genera un inline box, anche se di default era un block.
+	\item display:none: non associa un blocco all'elemento (quindi in teoria non mostra il blocco).
+	\item display:inline block: elemento posizionato come un inline ma contenuto formattato come block.
+	\item display:list-item: elemento genera un block box e un elemento di lista preceduto da un marcatore.
+	\item display: table, inline-table, table-row-group, table-column, table-column-group, table-header-group, table-footer-group, table-row, table-cell, table-caption: l'elemento si comporta come una tabella o una sua componente.
+\end{enumerate}
+\subsection{Schemi di posizionamento}
+Un box può essere disposto secondo tre schemi di posizionamento: flusso normale (formattazione a blocco, inline, posizionamente relativo e posizionamento di box run-in), float (box disposto secondo il flusso normale, poi estrato e spostato il più possibile a destra o a sinistra), assoluto (box disposto secondo il flusso normale, senza impatto agli elementi fratelli che seguono, ad esso viene assegnata una posizione in riferimento ad un blocco contenitore).
+\subsubsection{Proprietà position e float}
+Queste due proprietà ci dicono quale algoritmo di CSS deve essere utilizzato per calcolare la posizione di un box.\\
+position:
+\begin{itemize}
+	\item static: box disposto secondo il flusso normale
+	\item relative: box disposto secondo il flusso normale, poi il box viene spostato: se un box B viene spostato in maniera relativa, la posizione dei box sucessivi viene calcolata come se il box B non fosse stato spostato.
+	\item absolute: la posizione e la dimensione vengono specificati attraverso le proprietà top, right, bottom e left. I box posizionati in maniera assoluta vengono estratti dal flusso normale. I margini dei box posizionati in maniera assoluta non collassano con altri margini.
+	\item fixed: posizione calcolata come in absolute, ma viene fissata rispetto a qualche riferimento (ad esempio viene stampata su ogni pagina, non si muove se si scrolla)
+	\item inherit: lo stesso valore dell'elemento genitore.
+\end{itemize}
+float: right, left, none, inherit.
+\subsubsection{Proprietà top, right, bottom, left}
+Un elemento viene definito come posizionato se il valore della proprietà position è diverso da static. I box posizionati vengono disposti secondo 4 proprietà:
+\begin{itemize}
+	\item top length $|$ percentage $|$ auto $|$ inherit: per posizionamenti relativi, l'offset è calcolato rispetto al limite superiore esterno del box stesso nel flusso normale. Per posizionamenti assoluti, si considera un offset dal limite superiore esterno del padding dell'elemento contenitore.
+	\item right length $|$ percentage $|$ auto $|$ inherit
+	\item bottom length $|$ percentage $|$ auto $|$ inherit
+	\item left length $|$ percentage $|$ auto $|$ inherit
+\end{itemize}
+Se viene dichiarato un valore positivo per la proprietà top,il box viene spostato verso l'alto, lo stesso valore per bottom. Per right verso sinistra, per left verso destra.
+Le 4 proprietà hanno il seguente significato:
+\begin{itemize}
+	\item length: distanza fissa dal limite di riferimento (può essere negativa).
+	\item percentage: percentuale della larghezza o dell'altezza del box contenitore (può essere negativa).
+	\item auto: dipende.
+	\item inherit: dipende dal genitore.
+\end{itemize}
+\subsubsection{Flusso normale}
+È lo schema di default. Si applica a qualsiasi elemento non floated per cui position sia static o relative.\\
+I block box scorrono verticalmente dalla sommità del blocco contenitore, ognuno disposto sotto al precedente.\\
+I margini verticali di box consecutivi vengono collassati (si considera il maggiore).\\
+Gli inline box scorrono orizzontalmente da sinistra verso destra. È consentita il ritorno a capo su una nuova linea quando si eccede la grandezza disponibile.
+\subsubsection{Posizionamento relativo}
+relative consente di spostare il box rispetto alla posizione determinata dal flusso normale.\\
+Il box riposizionato può sovrapporre altri box.\\
+Lo spostamento viene determinato attraverso una combinazione di valori delle proprietà top, right, bottom, left (se si specificano left e right, uno dei due viene ignorato, stesso discorso per top e bottom).\\
+Ogni valore viene interpretato come la distanza alla quale il limite esterno del box corrispondente deve essere spostato rispetto alla sua posizione originaria nel flusso.\\
+Per gli elementi diversi dall'elemento root, il riferimento per il loro posizionamento è quello del content edge del box contenitore generato dall'antenato più prossimo.\\
+Per box che si sovrappongono, non è chiara la priorità di visualizzazione. Un browser, generalmente, mostra un box posizionato relativamente davanti agli elementi fratelli che lo precedono nel codice e dietro a quelli che lo seguono.\\
+Se l'elemento A, posizionato relativamente, è un block, questo stabilisce un nuovo blocco contenitore e un nuovo sistema di coordinate sul quale si baseranno i discendenti.\\
+Viene creata una nuova posizione per l'inizio del flusso normale, che verrà utilizzata dagli elementi nidificati.
+\subsubsection{Floats}
+Si ottiene attribuendo alla proprietà float di un elemento il valore di left o right.\\
+Il box viene posizionato vericalmente come se fosse nel flusso normale, ma viene spostato orizzontalmente quanto più possibile a destra o a sinistra nei limiti del box contenitore. I contenuti inline che lo circondano possono fluire sul lato opposto. Un box floated ha associata una grandezza (in assenza, riempirà orizzontalmente il box contenitore), vengono sempre considerati di tipo block anche se sono inline.\\
+I margini verticali di un box floated non collassano con i margini di box sopra o sotto di esso.\\
+Un box floated può sovrapporsi a block box adiacenti ad essi che si trovano nel flusso normale (usando la proprietà clear, il margine esterno specificato viene incrementato per permettere al suo bordo e al suo contenuto di posizionarsi sotto il margine del floated box).\\
+Quando due o più elementi adiacenti vengono floated, il loro limite superiore viene posizionato sulla stessa linea se c'è spazio orizzontale sufficente. Se non c'è, gli elementi successivi vengono spostati in basso dove c'è spazio.
+\subsubsection{Absolute}
+Per position settata ad aboslute o fixed.\\
+Il box viene rimosso dal flusso e non condiziona e non viene condizionato da altri elementi del flusso.\\
+Gli elementi absolute vengono tratti come block box.\\
+La posizione viene determinata dai valori di offset attributi a top, right, bottom, left. Gli spostamenti vengono calcolati in base al box contenitore (antenato più prossimo che ha position pari a relative, absolute o fixed. Se non c'è viene usato il blocco contenitore iniziale), e non in base al flusso normale.\\
+Se l'elemento contenitore è di tipo block, gli offset vanno misurati dal limite esterno del padding, e non del contenuto.
+\subsubsection{Fixed}
+Fixed è un caso speciale dell'absolute. Un elemento fixed non si muove quando la pagina web viene navigata con lo scrolling, e nella stampa viene stampato su ogni pagina.
+\subsection{Stacking Order}
+Gi elementi posizionati in maniera assoluta possono sovrapporsi. Lo stacking context e la proprietà z-index determinano quale elemento dovrà apparire di fronte ad un altro.\\
+Un elemento in posizone assoluta crea uno stacking context locale: consideriamo il valore di z-index associata ai diversi elementi del contesto, valori elevati hanno una precedenza nella visualizzazione. Se due elementi hanno lo stesso valore, l'ordine è quello del codice sorgente (elemento scritto prima sta dietro). È possibile applicare valori negativi di z-index.\\
+Quando si sovrappongono elementi che appartengono a stacking context diversi, questi vengono mostrati davanti o dietro a seconda del livello di stack del loro elemento contenitore definito da z-index.
 \end{document}
