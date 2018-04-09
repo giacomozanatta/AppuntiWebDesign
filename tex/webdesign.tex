@@ -573,4 +573,36 @@ Puoi scrivere come vuoi, puoi scegliere di mettere le virgolette o meno, di scri
 Non ci sono attributi deprecati, ma solo obsoleti, perchè si vuole mantenere la compatibilità con il passato.\\
 Un documento con elementi o attributi obsoleti sarà non conforme.\\
 Tuttavia, alcuni elementi di presentazione sono stati ridefiniti per superare i limiti passati.
+\section{HTML - parte 2}
+\subsection{Separare struttura e presentazione}
+È fondamentale separare struttura e presentazione. La separazione permette di definire unicamente i contenuti e di definire molteplici stili di presentazione a seconda dei dispositivi utilizzati e delle preferenze degli utenti.
+\subsection{Markup strutturale per il testo}
+Possiamo suddividere i tag definiti per marcare le caratteristiche di un testo in 2 gruppi:
+\subsubsection{Block-level elements}
+Elementi per definire blocchi strutturali. Abbiamo, come tag:
+\begin{enumerate}
+	\item $<p>$: denotare paragrafi. Il contenuto di questo tag viene visualizzando partendo da una nuova linea di testo; sopra e sotto il paragrafo viene aggiunta una nuova riga vuota.
+	\item $<hn>$ (con n un numero da 1 a 6): rappresentare livelli di intestazione di un testo (titoli). Le intestazioni di livello inferiore devono essere precedute da quelle di livello suoeriore.\\
+	Non è consigliabile saltare livelli.\\
+	Le intestazioni vengono rappresentate in grassetto, h1 viene rappresentato con un carattere molto grande, i successivi con caratteri decrescenti. Nella visualizzazione vengono aggiunti automaticamente un ritorno a capo e una riga vuota sopra e sotto l'intestazione.
+	\item liste: viene aggiunta una riga vuota prima e dopo la lista. Abbiamo 3 tipologie di liste: liste ordinate, liste non ordinate, definizioni. È possibile nidificare liste ordinate e non.
+	\subitem $<ul>$(liste non ordinate): davanti  ad ogni elemento viene inserito un pallino (nb: un elemento è identificato dal tag $<li>$). Usando  fogli di stile è possibile modificare l'identificatore.
+	\subitem $<ol>$ (liste ordinate): davanti ad ogni eemento viene inserito un numero arabo.
+	\subitem $<dl>$ (definizione): serve per denotare termini ($<dt>$) e definizioni ($dd$). I termini vengono visualizzati sul margine sinistro della pagina e le definizioni vengono spostate a destra rispetto al margine.
+\end{enumerate}
+\subsubsection{Inline Styles}
+Tag che si riferiscono ad aspetti di struttura o di presentazione relativi a stringhe di caratteri inseriti nel flusso di un testo. Condizionano il testo contenuto all'interno di essi, senza agigungere righe vuote prima e dopo.
+Possiamo suddividerli in 2 categorie.\\
+La prima sono gli stili logici (strutturali), che descrivono il significato, il contesto o l'uso dell'elemento racchiuso. L'aspetto di presentazione è a discrezione del browser.\\
+Per definire partizioni logiche vengono introdotti questi due tag: $<div>$ e $<span>$. Div marcatore generico utilizzato per dividere un documento in sezioni. È un elemento a livello di blocco (testo marcato inizia su una nuova riga e una riga vuota inserita prima e dopo il tag). Il tag Span invece è un inline generico da applicare ad una stringa all'interno di un paragrafo o altri contenuti. Questi tag vengono utilizzati in associazione con gli attributi class e id, e delle regole di stile associate.\\
+Gli stili fisici, invece, fornicono istruzioni sulle modalità di rappresentazione. Sono sconsigliati. Un esempio molto comune e utilizzato è il tag $<font>$, che permette di specificare il carattere tipografico, ha attributi quali face (specificare il font), size (dimensione, da 1 a 7). \\
+È bene sottolineare che la specifica del carattere tipografico (anche se fatta in CSS) non garantisce la visualizzazione del testo secondo le caratteristiche definite. Ad esempio, può non essere disponibile il carattere nel sistema.\\ Il tag font inoltre può impedire ai motori di ricerca di identificare gli elementi più importanti della pagina da un punto di vista semantico (se ad esempio modifichiamo la size nel tag font per far apparire il testo più importante). L'indicizzazione del sito avviene attribuendo pesi sbagliati a diversi elementi, generando problemi nella ricerca da parte degli utenti dei motori di ricerca stessi.
+\subsection{Link Ipertestuali}
+Il tag $<a>$ viene utilizzato come contenitore di una stringa di testo (o immagine) che funge come collegamento ipertestuale. Si possono utilizzare url assoluti oppure relativi.\\
+È possibile inoltre collegarsi, oltre che a pagine differenti, a sezioni o punti specifici di un documento come aiuto alla navigazione (usando $\#$ seguito dall'id dell'elemento).
+\subsection{Link non ipertestuali}
+Sono, ad esempio mail link o telnet link (viene aperta una sessione di terminale su un client), FTP link o altro.
+\subsection{Il tag $<link>$}
+Viene utilizzato per definire una relazione tra il documento corrente e un altro documento esterno. Possono esserci più tag link all'interno dello stesso documento, gli attributi più importanti sono: href, rel, rev e type.
+\section{HTML - Parte 3}
 \end{document}
