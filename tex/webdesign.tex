@@ -605,4 +605,50 @@ Sono, ad esempio mail link o telnet link (viene aperta una sessione di terminale
 \subsection{Il tag $<link>$}
 Viene utilizzato per definire una relazione tra il documento corrente e un altro documento esterno. Possono esserci più tag link all'interno dello stesso documento, gli attributi più importanti sono: href, rel, rev e type.
 \section{HTML - Parte 3}
+\subsection{Tabelle $<table>$}
+Originariamente, le tabelle vennero sviluppate per rappresentare i dati.\\
+Possono però anche venire utilizzate come griglie strutturali della pagina e/o per l'allineamento di testo, oppure come contenitori di immagini multiple.\\
+Le tabelle sono costituite da celle organizzate in righe. Le colonne sono definite implicitamente.\\
+\begin{itemize}
+	\item $<table>$: definisce inizio e fine della tabella.
+	\item $<tr>$: inizio e fine di una riga.
+	\item $<td>$: inizio e fine di cella (dove va posto il contenuto).
+	\item $<caption>$ (prima di ogni riga): titolo o descrizione della tabella
+	\item $<th>$ (elemento di testa). descrivere il contenuto della colonna sottostante.
+\end{itemize}
+L'attributo summary, facoltativo, di table può essere usato per dare una descrizione estesa dei contenuti della tabella, per gli utenti di dispositivi braille e convertitori TTS, e anche per i motori di ricerca.
+\subsection{Colspan}
+L'attributo colspan permette l'espansione di colonne. Il valore attribuito a colspan determina il numero di colonne attraverso le quali la cella si espande, da destra a sinistra.
+\subsection{Rowspan}
+L'attributo rowspan permette l'espansione di righe. Il valore attribuito a rowspan determina il numero di righe attraverso le quali la cella si espande, dall'alto verso il basso.
+\subsection{Gruppi di righe e colonne}
+Le righe di una tabella possono essere raggruppate in:
+\begin{itemize}
+	\item $<thead>$: sezione di testa
+	\item $<tfoot>$: sezione conclusiva
+	\item $<tbody>$: una o più sezioni per i contenuti.
+\end{itemize}
+Le prime due sezioni possono venire scritte di seguito nel codice, per poter avere una aprziale visualizzazione della tabella prima che tutto il contenuto di tbody venga caricato.\\
+I gruppi di colonne vengono realizzati con $<colgroup>$, il quale delimita un gruppo di colonne dal punto di vista strutturale. Il numero di colonne è definito dall'attributo span o dal numero di tag col contenuti, ognuno moltiplicato per il proprio valore di span.
+\subsection{Attributi XHTML di presentazione della tabella (deprecati)}
+\subsubsection{Dimensione}
+Le tabelle vengono rappresentate con la minima dimensone necessaria a contenere i dati.\\
+Per specificare una dimensione della tabella, abbiamo gli attributi width e height nel tag table.\\
+Per le dimensioni della cella, possiamo usare width nei tag td e th (larghezza valida per tutta la colonna) e height nei tag td e th (altezza valida per tutta la riga).
+\subsubsection{Bordi}
+Nel tag table possiamo inserire l'attributo border, che permette di visualizzare la tabella senza borsi.
+\subsubsection{Spaziatura tra e nelle celle}
+Cellspacing permette di definire la spaziatura tra le celle, cellpadding definisce la spaziatura tra il bordo interno della cella e i contenuti della cella.\\
+Entrambi gli attributi vanno messi in table.
+\subsubsection{Altri attributi}
+bgcolor, align su celle (allineamento orizzontale del testo) valign su celle (allineamento verticale del testo), align su table (posizionamento della tabella nel layout).
+NB: font non può essere un contenitore della tabella (se vogliamo cambiare testo alla tabella, dobbiamo ripetere il tag font per ogni elemento).
+\subsection{Tips and Tricks}
+\begin{enumerate}
+	\item Caratteri indesiderati: eliminare ogni carattere non necessario nel tag td
+	\item Celle che collassano: le celle che non contengono nessun carattere possono collassare. È possibile inserire la stringa CER di codifica dello spazio per evitare questo ($\& npsp$).
+	\item Caricamento di una tabella: prima di mostrare la tabella, il browser deve caricarla tutta. Per visualizzare progressivamente i contenuti è possibile utilizzare gruppi di righe e di colonne.
+\end{enumerate}
+\subsection{Tabelle come griglie strutturali di una pagina}
+Per definire la griglia strutturale della pagina, molti siti antichi utilizzavano una tabella costituita da 2 o più celle.  Bisogna però stare attenti ai margini, perchè una tabella viene posizionata rispettando i margini del browser.
 \end{document}
