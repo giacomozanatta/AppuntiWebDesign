@@ -948,4 +948,22 @@ In questo modo possiamo risparmiare dati, scaricando solo gli elementi che effet
 Sebbene abbiamo visto che i layout non devono basarsi su tabelle, a volte queste devono essere utilizzate, ad esempio per visualizzare i dati. È difficile adattare una tabella di dati in modo responsive al dispositivo.\\
 Possiamo, ad esempio, usare regole CSS per linearizzare le strutture tabellari. Alcuni framework come JQueryMobile permettono di ottenere facilmente una tabella responsive, utilizzando tecniche di linearizzazione che di visualizzazione selettiva delle colonne.\\
 Bootstrap3 invece permette di scorrere orizzontalmente le colonne che compongono la tabella.
+\section{HTML 5 - Rich Media}
+Con CSS, JavaScript e HTML è possibile costruire molte cose. Tuttavia, ci sono alcuni buchi, riguardandti le palette delle possibilità degli standard web. HTML5 ci viene in auto, evitando così di utilizzare plugin proprietari.
+\subsection{Audio}
+HTML5 permette di incorporare, con il tag audio, un documento audio in un documento HTML. \\
+È possibile, mediante l'attributo booleano autoplay, far avviare automaticamente l'audio.\\
+Usando l'attributo controls, gli utenti possono stoppare, mettere in pausa e gestire la sorgente audio.\\
+Con JavaScript e la Audio API è possibile creare i propri controlli.\\
+Con l'attributo autobuffer possiamo richiedere al borwser di precaricare l'audio in background. Ora questo attributo booleano è stato sostituito da preload, che può assumere none, auto e metadata.\\
+Il problema dell'audio non è comunque del tutto risolto, perchè molti formati sono proprietari e per decodificarli è necessario pagare.\\
+Usando un container audio, possiamo specificare più formati audio, per garantire maggiore compatibilità con i dispositivi e i browser. Possiamo anche, per aumentarne l'accessibilità, fornire una descrizione testuale del contenuto audio.
+\subsection{Video}
+HTML5 definisce il tag video, con gli attributi autoplay, loop, preload, per poter caricare e visualizzare un libro. È necessario specificare le dimensioni del video. Anchhe in questo caso, possiamo avere problemi di formati proprietari.
+\subsection{Canvas}
+Il canvas permette di definire un ambiente per la creazione di immagini dinamiche o anche applicazioni complesse.\\\\
+All'interno del canvas è presente codice JavaScript.
+L'elemento canvas, purtroppo, non ha un DOM: il contenuto rappresentato all'interno del canvas non può essere manipolato, ad esempio da tecnologie assistive (problema di accessibilità).\\
+Si potrebbe però usare i canvas per riciclare contenuto esistente piuttosto che crearlo, utilizzando tecniche come ad esempio l'obnotrusive JavaScript.
+\section{title}
 \end{document}
