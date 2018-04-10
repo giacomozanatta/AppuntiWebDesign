@@ -896,10 +896,56 @@ CS3 ha permess0, grazie alle media queries, di rendere meno grossolana la suddiv
 Possiamo utilizzare le media queries per descrivere regole diverse di presentazione. Possiamo definire dei breakpoint rispetto ai quali poi definire regole di presentazione che forniscono il risultato migliore nelle diverse situazioni.\\
 \includegraphics[width=9cm]{breakpoint}\\
 \subsubsection{Mobile first}
+Applicando la filosofia mobile first avremo un pieno supporto ai disposivi mobili.\\
+Con questa filosofia vengono prima descritte le regole di stile per una presentazione lineare, poi vengono redatte sezioni specifiche utilizzando la proprietà min-width descrivendo via via che cosa succede a mano a mano che la finestra si allarga.
+Oggi le media queries hanno un buon supporto da parte dei browser, ma quella vecchia volpe di IE, fino alle versione 8 compresa, non le supportano.\\
+È possibile usare librerie JavaScript per far supportare le media queries ai browser.
 \subsection{Relazione tra viewport e dispositivo}
+La dimensione dela viewport viene definita dall'user agent (il browser).\\
+Non è detto che la dimnesione in pixel della viewport corrisponda alla dimensione in pixel hardware o pixel CSS del dispositivo che mostrerà la pagina web.\\
+È possibile dichiarare esplicitamente il valore in pixel della viewport, tramite un apposito tag meta.\\
+Si può inoltre indicare, al posto dei pixel, un valore di zoom iniziale, e specificando come larghezza la larghezza del dispositivo. In questo modo, la viewport si adatterà a diversi dispositivi e anche all'orientamento del dispositivo.
 \subsection{Non ci sono più i pixel di una volta}
+Un pixel CSS è ancorata al pixel di riferimento, rispetto al quale va definito il rapporto con i pixel hardware.\\
+Il pixel di riferimento è quello che viene visto da un occhio che osserva un pixel fisico di densità pari a 26 dpi ad una distanza di un braccio (28 inches). Il pixel di riferimento viene dunque definito attraverso un angolo.\\
+Nella definizione di reference pixel (pixel di riferimento) vengono considerati sia la densità della matrice dei pixel HW sia la distanza a cui questa matrice viene vista dall'utente.\\
+La scelta di questi parametri deriva dal fatto che molti dei contenuti web sono stati finora progettati per schermi desktop (utilizzati a distanza di circa un braccio) con una densità di 96 dpi.\\
+Se, quindi, la densità della matrice fisica del dispositivo e la distanza di utilizzo dallo sguardo dell'utente corrispondono a quanto specificato prima, il mapping tra pixel CSS e pixel harware sarà un rapporto 1:1. Altrimenti, il costruttore di dispositivi dovrà tenere in considerazione il rapporto tra le 2 grandezze per utilizzarlo nel mapping tra specifica CSS e rendering della pagina. Deve, quindi:\\
+\begin{itemize}
+	\item calcolare la densità equivalente, basandosi sulla conoscenza della densità di riferimento (96 dpi), della distanza di riferimento (28 pollici) e della distanza d'uso del nuovo dispositivo.
+	\item densità equivalente = (distanza di riferimento / distanza d'uso nuovo dispositivo)*densità di riferimento.
+	\item si calcolerà poi la devicepixelratio, ossia il rapporto tra pixel HW e pixel CSS, che è uguale a densità nuovo dispositivo effettiva / densità equivalente.
+\end{itemize}
+Un dip (device-independent pixel), introdotto per Android, corrisponde alla definizione del pixel CSS (1 dip corrisponde ad un pixel fisico ad una densità di 160 dpi). \\
+Possiamo dire che la definizione di un pixel CSS si sovrappone a quella di un dip, o meglio, il numero di dips è uguale al numero di pixel CSS ottimale per visualizzare un sito web al 100$\% $ di zoom.
 \subsection{Immagini High-DPI}
-\subsection{Conditional Loading}
-\subsection{Responsive Tables}
+È necessario garantire la rappresentazione delle immagini su dispositivi a densità bassa.\\
+Non sempre è possibile utilizzare formati vettoriali, ma ci sono delle tecniche per mostrare le immagini raster con la qualità migliore permessa dal dispositivo.
+\subsubsection{Tecniche che operano sulla singola immagine}
+Queste tecniche sacrificano le performance, dal momento che dovranno essere scaricata un'immagine High-DPI anche per dispositvi con DPI basso.Una tecnica può essere l'utilizzo di immagini fortemente compresse, per ridurre lo spazio. \\
+Di recente sono nati nuovi formati di immagine, ad esempio il Webp, che comprime in maniera molto efficente. Oppure il formato Flif. Un altro metodo è quello di usare immagini di tipo progressive, insieme a tecniche che fermano il caricamento dell'immagine quando si raggiunge una qualità discreta.
+\subsubsection{Tecniche che operano su immagine multiple}
+Hanno in comune un overhead nella creazione di versioni diverse della stessa immagine. Le opzioni possibili sono l'utilizzo di JavaScript, per determinare il devicepixelratio e altre feature del dispositivo.\\
+Oppure la selezione server side che implica il riconoscimento dello user-agent e la scrittura handler per ogni immagini. Non è possibile ricavare dal lato server tutte le features del server.\\
+O utilizzando le media queries.\\
+O utilizzo regole CSS e nuovi attributi HTML (tramite l'attributo srcset).\\
 
+\subsubsection{Raccomandazioni}
+Le raccomandazioni principali sono: 
+\begin{itemize}
+	\item CSS regola image-set con fallback per immagini di sfondo
+	\item srcset con fallback per immagini del contenuto
+	\item immagini 2X fortemente compresse per le situazioni in cui si è disposti a sacrificare la qualità ma si vuole evitare l'overhead di creare e gestire versioni multiple di una stessa immagine.
+\end{itemize}
+\subsection{Conditional Loading}
+Queste tecniche permettono di creare in maniera selettiva sulla pagina parti di contenuto a seconda delle caratteristiche del dispositivo e delle features del browser, utilizzando principalmente JavaScript.\\
+Quando viene caricata la pagina, viene verificata la larghezza del dispositivo.\\
+Se la grandezza è maggiore di X, allora presentiamo più dati, altrimenti possiamo mettere un pulsante ad esempio "Visualizza altro".
+\subsection{Lazy loading}
+Il lazy loading, invece, anzichè omettere il caricamento di parti del contenuto, lo ritarda, fino al momento in cui serve (ad esempio quando l'utente finisce di scrollare la pagina, carichiamo altri dati).\\
+In questo modo possiamo risparmiare dati, scaricando solo gli elementi che effettivamente servono.
+\subsection{Responsive Tables}
+Sebbene abbiamo visto che i layout non devono basarsi su tabelle, a volte queste devono essere utilizzate, ad esempio per visualizzare i dati. È difficile adattare una tabella di dati in modo responsive al dispositivo.\\
+Possiamo, ad esempio, usare regole CSS per linearizzare le strutture tabellari. Alcuni framework come JQueryMobile permettono di ottenere facilmente una tabella responsive, utilizzando tecniche di linearizzazione che di visualizzazione selettiva delle colonne.\\
+Bootstrap3 invece permette di scorrere orizzontalmente le colonne che compongono la tabella.
 \end{document}
