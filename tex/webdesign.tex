@@ -948,7 +948,7 @@ In questo modo possiamo risparmiare dati, scaricando solo gli elementi che effet
 Sebbene abbiamo visto che i layout non devono basarsi su tabelle, a volte queste devono essere utilizzate, ad esempio per visualizzare i dati. È difficile adattare una tabella di dati in modo responsive al dispositivo.\\
 Possiamo, ad esempio, usare regole CSS per linearizzare le strutture tabellari. Alcuni framework come JQueryMobile permettono di ottenere facilmente una tabella responsive, utilizzando tecniche di linearizzazione che di visualizzazione selettiva delle colonne.\\
 Bootstrap3 invece permette di scorrere orizzontalmente le colonne che compongono la tabella.
-\section{HTML 5 - Rich Media}
+\section{HTML 5}
 Con CSS, JavaScript e HTML è possibile costruire molte cose. Tuttavia, ci sono alcuni buchi, riguardandti le palette delle possibilità degli standard web. HTML5 ci viene in auto, evitando così di utilizzare plugin proprietari.
 \subsection{Audio}
 HTML5 permette di incorporare, con il tag audio, un documento audio in un documento HTML. \\
@@ -965,5 +965,42 @@ Il canvas permette di definire un ambiente per la creazione di immagini dinamich
 All'interno del canvas è presente codice JavaScript.
 L'elemento canvas, purtroppo, non ha un DOM: il contenuto rappresentato all'interno del canvas non può essere manipolato, ad esempio da tecnologie assistive (problema di accessibilità).\\
 Si potrebbe però usare i canvas per riciclare contenuto esistente piuttosto che crearlo, utilizzando tecniche come ad esempio l'obnotrusive JavaScript.
-\section{title}
+\section{HTLM5 - Parte 2}
+\subsection{Semantica}
+HTML non fornisce un numero elevato di elementi con i quali operare.
+Possiamo definire paragrafi, liste, ma non possiamo definire, ad esempio, eventi, notizie, ricette di cucina.\\
+Altri linguaggi di markup permettono di definire nuovi elementi, ma purtroppo è necessario avere un parser per il quale questo nuovo elemento abbia un significato.\\
+Con l'attributo class, possiamo etichettare  specifiche istanze di un elemento con rappresentanti di una classe o tipo speciale.\\
+Questo tipo di elementi vengono chiamati microformati.
+\subsection{Microformati}
+Utilizzano un set di convenzioni, utilizzano l'attributo class per connotare semanticamente alcune parti del codice html: hCard per i contatti, hCalendar per gli eventi, hAtom per le news.\\
+Dato che c'è il consenso di una comunità sui valori assegnati alle classi, sono stati creati parser ed estensioni del browser che lavorano con questi microformati.\\
+Un microformato è una parte di markup che consente espressioni semantiche in una pagina HTML, sfruttando gli attributi class, rel, rev.\\ I programmi, tramite i microformati, possono estrarre i dati semantici da una pagina.\\
+Permettono di creare codice X/HTML leggibile dai programmi ma continuando a garantire un'elevata comprensibilità da parte delle persone.\\
+\subsection{Modelli di contenuto}
+HTML5 fornisce un nuovo metodo per risolvere questo problema, definendo un nuovo set di tags.\\
+Gli elementi, ora, non saranno più di tipo inline e block, ma avremo: text-level semantics, grouping content, forms, sectioning content.
+\subsubsection{Text-Level Semantics}
+Sono i vecchi inline, con l'aggiunta di, ad esempio, mark (mostra che il contenuto è in questo momento interessante), time (per date, orari, combinazioni di entrambi), meter (per denotare misure, con un minimo e un massimo), progress (per marcare qualcosa che sta mutando).
+\subsubsection{Sectioning content}
+\begin{itemize}
+	\item section: utilizzato per raggruppare insieme contenuti correlati telematicamente. Si differenzia da div, perchè viene utilizzato esplicitamente per raggruppare contenuti correlati.
+	\item header: definito come contenitore per un gruppo di elementi introduttivi o navigazionali. Un documento può avere più header.\\ È possibile usare header dentro un section.\\
+	Un header appare in testa ad un documento o ad una sezione, ma non necessariamente. È definito dal contesto, piuttosto che dalla sua posizione.
+	\item footer: descrive informazioni relative ad un contenuto definito all'interno di un contenitore comune, ad esempio chi ha scritto questo contenuto, informazioni di copyright, link a contenuto correlati...\\
+	È possibile avere più elementi footer all'interno di un documento.
+	\item aside: identifica il concetto editoriale di supplemento o nota integrativa (sidebar).\\
+	Dovrebbe essere utilizzato per contenuto collegato tangenzialmente al contenuto principale.\\
+	È un buon contenitore per descrivere un frammento di contenuto che si considera separato dal contenuto principale. Le citazioni costituiscono un buon esempio di contenuto collegato tangenzialmente.
+	\item nav: contiene informazione navigazionale, ad esempio una collezione di links.
+	Viene utilizzato per la navigazione principale. Molto spesso, un nav appare all'interno di un header.
+	\item article: sembra che header, footer, nav e aside siano forme specializzate dell'elemento section.\\
+	Una sezione è un frammento di contenuto correlato generico, mentre header, nav, aside, footer sono frammenti correlati di tipi specifici.\\
+	L'article viene utilizzato per descrivere contenuto correlato specifico autoconclusivo (ha una sua completezza dal punto di vista semantico).\\
+	È utile per post di blogs, forum, news e commenti (come hAtom).\\
+	Se si usa un time all'interno di article, è possibile mediante un attributo dichiararlo data di pubblicazione (pubdate).
+\end{itemize}
+Articolo e sezione sono molto simili, la distinzione è l'aggettivo autocontenuto. \\
+È possibile avere momlti articoli all'interno di una sezione oppure molteplici sezioni all'interno di un articolo.\\
+È possibile nidificare sezioni all'interno di sezioni e articoli all'interno di articoli.
 \end{document}
