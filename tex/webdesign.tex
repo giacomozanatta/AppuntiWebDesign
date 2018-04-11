@@ -1003,4 +1003,38 @@ Sono i vecchi inline, con l'aggiunta di, ad esempio, mark (mostra che il contenu
 Articolo e sezione sono molto simili, la distinzione è l'aggettivo autocontenuto. \\
 È possibile avere momlti articoli all'interno di una sezione oppure molteplici sezioni all'interno di un articolo.\\
 È possibile nidificare sezioni all'interno di sezioni e articoli all'interno di articoli.
+\subsection{Perchè usare il markup semantico?}
+Per 5 semplici ragioni:
+\begin{itemize}
+	\item Regioni definite chiaramente per lo sviluppatore: è molto più semplice identificare dove le sezioni iniscono e finiscono.
+	\item Agganci extra per CSS senza utilizzare class o id: possiamo ad esempio definire proprietà di posizionamento per tutte le sections, o stabilire in modo semplice regole di visibilità.
+	\item Regioni definite chiaramente per i motori di ricerca: quando HTML5 diventerà molto usato, probabilmente i search engines useranno i tag HTML5 semantici per indicizzare le pagine.
+	\item Tecnologie assistive: possono migliorare l'accessibilità dei lettori di schermo.
+	\item Agganci per lo scripting: ad esempio, uno script può utilizzare la funzione getElementsByTagname() per trovare tutti gli elementi di aside e nasconderli dalla vista dell'utente.
+\end{itemize}
+\subsection{WAI-ARIA}
+WAI-ARIA (Accessible Rich Internet Application Suite) rappresenta un modo alternativo per aggiungere semantica al documento web.\\ 
+Permette di rendere il contenuto e le applicazioni web più accessibili, soprattutto per quanto riguarda il contenuto dinamico e i controlli di interfaccia avanzati che utilizzano Ajax, JavaScript e le tecnologie collegate.\\
+Le estensioni critiche di WAI-ARIA sono così riassunte: \\
+Abbbiamo nuovi attributi per definire proprietà e stati dinamici, che possono essere mappati ad API di accessibilità per assicurare l'interoperabilità con le tecnologie assistite.\\
+Abbiamo un attributo di ruolo per annotare elementi HTML con informazioni riguardanti lo scopo dell'elemento.\\
+Valori di ruolo per i landmark del documento. 
+\subsubsection{I ruoli di WAI-ARIA}
+WAI-ARIA definisce un insieme di ruoli per definire la struttura della pagina e widget specifici.\\
+Oltre a questo, alcune tecnologie assistive forniscono modalità di interazione speciali per regioni marcate con il ruolo application o document.\\
+I ruoli sono classificati come segue; ruoli astratti, ruoli widget, ruoli relativi alla struttura del documento, ruoli landmark.
+\begin{itemize}
+	\item Abstract role: definiscono concetti generali, sono utilizzati nell'ambito della tassonomia dei ruoli di WAI-ARIA. Gli autori non devono utilizzare i ruoli astratti nel contenuto. Esempi di abstract role: command, composite, input, landmark, range, roletype, section, sectionhead, select, structure, widget.
+	\item Widget role: elementi distinti dell'interfaccia o parte di elementi compositi: alert, alertdialog, checkbox, dialog, gridcell, link, log, marquee, menuitem, treeitem, progresbar, radio...
+	I ruoli seguenti sono widget compositi (agiscono come contenitori che gestiscono altri ruoli): combobox, grid, menu, radiogroup, menubar, listbox, tablist, tree, treegrid.
+	\item Document structure role descrivono strutture che organizzano il contenuto della pagina, non sono interattive: article, columnheader, definition, directory, document, group, heading, img, list, listitem...
+	\item Landmark role: descrivono regioni della pagina, sono intesi come landmark navigazionali: banner, complementary, contentinfo, form, main, navigation, search.
+\end{itemize}
+\subsubsection{Denorare le regioni di un documento}
+\begin{itemize}
+	\item HTML4: vengono denotate usando attributo class e id (senza estensione del linguaggio)
+	\item HTML4 +WAI-ARIA: denotate attraverso l'uso di nuovi attributi (role) e di un set di valori (banner, article, navigation...), richiede un estensione del linguaggio
+	\item HTML5: denotate attraverso l'uso di un nuovo set di tag: header, nav, article, footer.. 
+	\item HTML5 + WAI-ARIA: denotate con il nuovo set di tag introdotti da HTML5, usando anche gli attributi role.
+\end{itemize}
 \end{document}
