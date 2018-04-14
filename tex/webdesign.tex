@@ -1030,11 +1030,110 @@ I ruoli sono classificati come segue; ruoli astratti, ruoli widget, ruoli relati
 	\item Document structure role descrivono strutture che organizzano il contenuto della pagina, non sono interattive: article, columnheader, definition, directory, document, group, heading, img, list, listitem...
 	\item Landmark role: descrivono regioni della pagina, sono intesi come landmark navigazionali: banner, complementary, contentinfo, form, main, navigation, search.
 \end{itemize}
-\subsubsection{Denorare le regioni di un documento}
+\subsubsection{Denotare le regioni di un documento}
 \begin{itemize}
 	\item HTML4: vengono denotate usando attributo class e id (senza estensione del linguaggio)
 	\item HTML4 +WAI-ARIA: denotate attraverso l'uso di nuovi attributi (role) e di un set di valori (banner, article, navigation...), richiede un estensione del linguaggio
 	\item HTML5: denotate attraverso l'uso di un nuovo set di tag: header, nav, article, footer.. 
 	\item HTML5 + WAI-ARIA: denotate con il nuovo set di tag introdotti da HTML5, usando anche gli attributi role.
 \end{itemize}
+\section{Usabilità}
+\begin{itemize}
+	\item La facilità con la quale un utente può imparare ad operare, a predisporre l'input e a interpretare l'output di un sistema o di una componente. (IEEE, 1990)
+	\item L'efficacia, l'efficenza e la soddisfazione con la quale determinati utenti ragigungono scopi specifici in un determinato ambiente d'uso (ISO 9241-11 1998)
+	\subitem Efficacia: accuratezza e completezza con la quale determinati utenti raggiungono scopi specifici in determinanti ambienti.
+	\subitem Efficienza: rapporto tra le risorse impiegate e l'accuratezza e la completezza degli scopi raggiunti.
+	\subitem Soddisfazione: comfort e accettabilità del sistema rispetto agli utenti e ad altri soggetti condizionati dal sistema stesso.
+	\item È la misura della qualità dell'esperienza utente che interagisce con qualcosa (sito web, applicazione) (Nielsen)
+\end{itemize}
+\subsection{Usabilità di Nielsen}
+Nielsen definisce queste caratteristiche dell'usabilità:
+\begin{enumerate}
+	\item Facilità di apprendimento: con che velocità l'utente impara?
+	\item Efficienza d'uso: quanto velocemente un utente può svolgere i suoi compiti?
+	\item Memorizzabilità: l'utente può ricordare in maniera sufficente le modalità d'uso per utilizzare il sistema in modo efficace?
+	\item Frequenza e gravità degli errori: con che frequenza gli utenti fanno errori utilizzando il sistema? E quanto sono gravi gli errori?
+	\item Soddisfazione soggettiva: quanto piace all'utente utilizzare il sistema?
+\end{enumerate}
+\subsection{Ciclo di vita del software}
+È una mappatura accettata del processo di sviluppo del software. L'usabilità non è una caratterista da aggiungere alla fine del ciclo di sviluppo di un software.\\
+Il ciclo di vita proposto dalla disciplina dell'Ingegneria dell'Usabilità si sviluppa in parallelo con le fasi tradizionali di sviluppo software ed è strettamente interconnesso con esse.\\
+L'ingegneria dell'usabilità è un approccio metodico per raggiungere l'usabilità durante lo sviluppo di un software. coinvolge molti metodi da applicare nelle diverse fasi dello sviluppo di un software. Questi metodi coinvolgono la fase di definizione dei requisiti, lo sviluppo e il test di prototipi, la valutazione di design alternativi, la proposta di soluzioni e il test del sito, o dell'interfaccia, con gli utenti.
+\subsection{Usability Engineering Life Cycle (Nielsen)}
+\begin{enumerate}
+	\item Analisi degli utenti
+	\subitem caratteristiche individuali
+	\subitem attività correnti e desiderate
+	\subitem analisi funzionale
+	\subitem analisi evolutiva
+	\item Analisi competitiva
+	\item Definizione obiettivi usabilità
+	\item Design parallelo
+	\item Design partecipatorio
+	\item Coordinamento dell'interfaccia complessiva
+	\item Linee guida e valutazione euristica
+	\item Prototipazione
+	\item Valutazione interfaccia
+	\item Design iterativo
+	\item Studio e valutazione sistema
+\end{enumerate}
+Possiamo suddividere tutte queste attività in due macro-aree:
+\begin{itemize}
+	\item Attività di pianificazione e progetto
+	\item Attività di valutazione
+\end{itemize}
+\subsubsection{Attività di pianificazione e progetto}
+Un'attività importante di questa area è la progettazione di prototipi.\\
+Il prototipo riduce la complessità del sistema, eliminando alcune parti: i prototipi orizzontali riducono il livello di funzionalità del sistema, e danno luogo ad interfacce con funzionalità non completamente implementate. I prototipi verticali, invece, riducono il numero di features, ma quelle scelte sono pienamente implementate.
+Gli scenari sono una riduzione estrema del sistema: simulano l'interfaccia solo se l'utente segue un percorso precedentemente pianificato.\\
+I prototipi possono anche venire costruiti velocemente, ad esempio attribuendo meno enfasi all'efficienza dell'implementazione, scrivendo codice meno accettabile, usando algoritmi semplificati, usando una descrizione verbale dell'interfaccia, usando dati falsi ecc.\\
+\subsubsection{Attività di valutazione dell'usabilità}
+\begin{itemize}
+	\item Test: utenti rappresentativi operano sul sistema, o sul prototipo, svolgendo i loro compiti. Dei valutatori registrano quello che l'utente fa o dice mentre svolge il compito. I test vengono condotti con uno o due utenti alla volta. I valutatori utilizzano i risultati del test per verificare come l'interfaccia supporta gli utente nello svolgimento dei loro compiti.
+	\item Tecniche di ispezione: specialisti di usabilità esaminano gli aspetti di usabilità relativi ad una determinata interfaccia utente.
+	\item Raccolta dati: i valutatori dell'usabilità ottengono informazioni intervistando gli utenti o chiedendo loro di rispondere ad un insieme di domande in forma scritta.
+\end{itemize}
+\subsection{Euristiche di usabilità}
+Sono un insieme di principi di usabilità applicati ad una grande varietà di interfacce, sia GUI che CLI.\\
+Le euristiche possono venire usate sia come supporto alla progettazione sia come guida di usabilità di un'interfaccia.\\
+Nel secondo caso, parliamo di valutazione euristica; è una tecnica a basso costo, facile e veloce. In questo caso, un gruppo di valutatori studia l'interfaccia e verifica che le euristiche siano state soddisfatte.
+Nielsen ha proposto queste 10 euristiche:
+\begin{enumerate}
+	\item Visibilità dello stato del sistema: il sistema deve tenere aggiornati gli utenti su ciò che sta accadendo, inn un tempo ragionevole e con un feedback appropriato.
+	\item Corrispondeza tra sistema e mondo reale: il sistema deve parlare il linguaggio dell'utente, parole semplici capibili da tutti e non termini tecnici. Inoltre deve seguire le convenzioni del mondo reale, facendo apparire l'informazione secondo un ordine logico e naturale.
+	\item Controllo utente e libertà: supportate funzioni di Undo e Redo.
+	\item Consistenza e standard: seguire le convenzioni delle piattaforma su cui si sta lavorando.
+	\item Prevenzione degli errori: es. tastiera predittiva
+	\item Riconoscimento anzichè ricordo; oggetti, azioni e opzioni visibili e identificabili.
+	\item Flessibilità ed efficienza d'uso: usare shortcuts, acceleratori. Permettere all'utente di personalizzare lo svolgimento delle azioni frequenti.
+	\item Estetica e design minimalisti: le finestre di dialogo e l'estetica dovrebbero contenere solo l'essenziale, niente informazioni irrilevanti.
+	\item Aiuto per l'utente per il riconoscimento, la diagnosi e il recupero da situazioni di errore: i messaggi d'errore dovrebbero essere espressi in linguaggio semplice. È necessario indicare il problema con precisione e suggerire costruttivamente una soluzione.
+	\item Aiuto e documentazione: queste informazioni devono essere facili da cercare
+\end{enumerate}
+\subsection{Usabilità per il web}
+È importante, un sito web poco usabile porta a perdite di tempo e denaro per l'utente.\\
+In Internet, gli utenti hanno esperienza dell'usabilità di un sito prima dell'interagire con esso e prima che essi abbiano speso soldi in possibili acquisti.\\
+Le euristiche per il web sono le seguenti:
+\begin{enumerate}
+	\item Navigazione (da euristica 1)\\
+	Requisiti: localizzazione corrente mostrata chiaramente, collegamento alla pagina iniziale mostrato in modo chiaro, sezioni principali accessibili dalla pagina principale, fornita una mappa del sito per siti grandi e se necessarui una facile funzione di ricerca.
+	\item Funzionalità (da euristica 7)\\
+	Requisiti: funzioni etichettate chiaramente, funzionalità essenziali disponibili senza abbandonare il sito, plug-in utilizzati solo se aggiungono valore (attenzione ai problemi di accessibilità), sito deve soddisfare sia gli esperti che i neofiti.
+	\item Controllo utente (da euristica 3)\\
+	Requisiti: sito riflette workflow dell'utente, utente può annullare qualsiasi operazione, presente un punto di uscita ad ogni pagina, dimensioni pagina inferiori a 50kbps, tutti i browser supportati.
+	\item Linguaggio e contenuto (da euristica 2)\\
+	Requisiti: precendenza a informazione e servizi importanti. No inclusa informazione non rilevante o poco utilizzata. Le informazioni o i servizi correlati sono raggruppati (sulla stessa pagina pagina o menu o nella stessa area all'interno della pagina). Linnguaggio semplice, paragrafi brevi, link concisi, espressivi e visibili, spiegazione dei termini utilizzati.
+	\item Help Online e guide per l'utente (da eurisitca 10)\\
+	Requisiti: minimizzare richieste di aiuto e di istruzioni. Facilmente accessibili aiuto e istruzioni.
+	\item Feedback del Sistema e dell'Utente (da eurisitca 1)\\
+	Requisiti: è chiaro quello che sta succedendo, utenti possono ricevere ed inviare un feedback via mail o (solo per invio) attraverso un modulo online, schermata di conferma modulo, feedback fornito in tempo utile. Ogni pagina deve presentare la data di ultima modifica, gli utenti devono essere informati della necessità di una particolare versione del browser o pugin.
+	\item Consistenza (da eurisitca 4)\\
+	Requisiti: stessa parola o frase usata in modo consistente, menu riflettono titolo e intestazione pagina, titolo pagina significativo e riflette intestazione.
+	\item Prevenzione e Correzione degli Errori (da eurisitiche 5-9)\\
+	Requisiti: utenti possono fare affidamento sul riconoscimento per utilizzare con successo il sito, sito accetta una varietà di azioni dall'utente, sito fornisce istruzioni concise per le azioni (anche indicando i formati di input). I messaggi d'errore visibili e scritti in un linguaggio chiaro, descrivono le azioni per risolvere un problema, forniscono un chiaro punto d'uscita, forniscono riferimenti per chiedere assistenza.
+	\item Architettura e Chiarezza Visuale(da euristica 8)\\
+	Requisiti: sito organizzato secondo la prospettiva dell'utente, facilmente scansibili. Il design e layout sono concisi, e ridondanti solo quando è questo è produttivo per l'utente. Lo spazio bianco è adeguato, evitate animazioni non necessarie, colori per link chiaramente idenificabili, grassetto e corsivo usati con moderazione.
+\end{enumerate}
+\section{Il protocollo eGLU}
+
 \end{document}
