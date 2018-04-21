@@ -1181,4 +1181,198 @@ Si può utilizzare almeno uno fra:
 \end{itemize}
 Questi questionari servono per avere indicazioni sulla percezione di facilità d'uso da parte dei partecipanti.\\
 Oltre a questi è possibili utilizzare l'NPS (Net Promoter Score), usando voti in una scala da 1 a 10.
+\section{Accessibilità}
+È l'usabilità di un prodotto, servizio, ambiente o strumento, per persone col più ampio raggio di capacità.\\
+Per il web, si riferisce alla possibilità di accedere alle informazioni e ai servizi disponibili in rete da parte di categorie di utenti diversificate e da una gamma di dispositivi diversi. Ci si concentra sulla possibilità di accedere all'informazione da parte di categorie di utenti svantaggiate sotto il profilo fisico o psichico, ma anche da dispositivi diversi.
+\subsection{Classi di utenti}
+\begin{itemize}
+	\item muti, sordi, cechi
+	\item dislessici
+	\item possono non essere in grado di utilizzare mouse e tastiera
+	\item possono non conoscere la lingua del documento
+	\item possono trovarsi in una situazione in cui un loro senso è occupato.
+	\item possono avere la versione precedente di un browser.
+\end{itemize}
+\subsection{WAI}
+WAI (Web Accessibility Initiative) è un'inziata promossa dal W3 che si occupa di accessibilità web. Il gruppo di lavoro WAI assicura che le tecnologie e gli standard promossi dal W3 supportino l'accessibilità e promuove ricerca e formazione sulla materia.
+\subsection{Raccomandazioni WAI}
+WAI definisce documenti relativi all'accessibilità che si rivolgono a tre classi di utenza differenziate:
+\begin{itemize}
+	\item Linee guida per l'accessibilità ai contenuti web: regole e tecniche per i web designer e gli autori per creare documenti accessibili.
+	\item Linee guida per l'accessibilità degli strumenti di authoring: si rivolgono ai creatori di strumenti di authoring, per facilitare la creazione di contenuto conforme agli standard di accessibilità.
+	\item Linee guida per l'accessibilità degli strumenti per navigare sul web: si rivolgono agli sviluppatori di strumenti di navigazione (browser)
+\end{itemize}
+\subsubsection{Linee guida 1.0 per l'accessibilità ai contenuti web}
+Il documento delle linee guida rappresenta una versione stabile. Oltre a questo documento, il gruppo WAI ha emesso un documento, chiamato Tecniche relative alle linee guida per l'accessibilità ai contenuti web) che fornisce tecniche per l'implementazione dei punti di controllo visti precedentemente.
+\subsection{Principi di progettazione}
+Le 14 linee guida WCAG si basano su 2 principi: 
+\begin{itemize}
+	\item assicurare una trasfomazione elegante (quindi separare struttura da presentazione, fonire testo ed equivalenti testuali, creare documenti che veicolino l'informazione per utenti non vedenti/sordi, creare documenti che non si basino su uno specifico Hardware). Questo principio è perseguito dalle linee guida da 1 a 11.
+	\item rendere il contenuto comprensibile e navigabile (è necessario adottare un linguaggio semplice, fonire meccanismi comprensibili per la navigazione, inserire strumenti di navigazione e informazioni di orientamento molto accessibili).
+	Questo principio è perseguito dalle linee guida da 12 a 14.
+\end{itemize}
+\subsection{Contenuti equivalente}
+Un contenuto è equivalente ad un altro quando entrambi svolgono la stessa funzione o scopo dell'utente. Sono utili per utenti disabili, ad esempio possiamo fornire un equivalente testuale per immagini, video o audio per utenti sordi (nb: il contenuto testuale può essere riprodotto mediante sintesi vocale, braille o testo) o un equivalentes non testuale (descrizione o presentazione visiva, video di una persona che racconti una storia con il linguaggio dei segni come equivalente di una storia scritta) 
+\subsection{Organizzazione linee guida WCAG}
+Ciascuna linea guida comprende: numero, obiettivo, logica e categorie di utenti, lista di definizioni dei punti di controllo.\\
+Le definizioni dei punti di controllo spiegano in che modo la linea guida è applicabile in tipici scenari di sviluppo dei contenuti. Una specifica per un punto di controllo comprende: numero, obiettivo, priorità, note informative opzionali, collegamento ad una sezione del documento sulle tecniche dove vengono discusse implementazioni ed esempi dei punti di controllo.
+\subsubsection{Priorità}
+Ci sono 3 livelli di priorità per ogni punto di controllo. Il livello di priorità viene assegnato dal Gruppo di lavoro.
+\begin{itemize}
+	\item Priorità 1: lo sviluppatore deve conformarsi al presente punto di controllo. In caso contrario, ad una o più categorie di utenti viene precluso l'accesso alle informazioni.
+	\item Priorità 2: lo sviluppatore di contenuti dovrebbe conformarsi. In caso contrario, ad alcune categorie di utenti risulterà difficile accedere alle informazioni.
+	\item Priorità 3: lo sviluppatore può conformarsi. In caso contrario, alcune categorie di utenti saranno ostacolate nell'accesso alle informazioni.
+\end{itemize}
+\subsubsection{Conformità}
+Ci sono 3 livelli di conformità, per classificare un documento web rispetto alle linee guida sull'accessibilità: livello A (conforme a tutti i punti di controllo di priorità 1), LIvello AA (conforme a priorità 1 e 2), Livello AAA (conforme a 1, 2, 3)
+\subsection{Validazione dell'accessibilità}
+È necessario validare l'accessibilità usando strumenti automatici e revisione umana. I metodi automatizzati, sebbene veloci, non riescono ad identificare tutti i problemi dell'accessibilità. Alcuni metodi di validazione:
+\begin{itemize}
+	\item usare strumento di accessibilità automatico e uno strumento di validazione browser
+	\item validare la sintassi
+	\item validare fogli di stile
+	\item usare browser testuali
+	\item usare differenti browser grafici, con differnti caratteristiche, anche diverse versioni dello stesso browser
+	\item usare un browser con la voce incorporata, uno screen readerm un software ingrandente, un piccolo display, ecc
+	\item usare controlli di spelling e grammatica
+	\item rivedere la chiarezza e la semplicità del documento
+	\item invitare persone con una disabiità a revisionare i documenti.
+\end{itemize}
+\subsection{Accessibilità nelle specifiche W3C}
+Le specifihe incorporano molti metodi per favorire l'accesso all'informazione. Da WAI, sono stati influenzati: la specifica HTML 4.01 e la raccomandazione CSS2.
+\subsection{WCAG 2.0}
+Riguarda i contenuti web in senso ampio: pagine web, siti web, app web...
+Le milestones per WCAG 2 sono:
+\begin{itemize}
+	\item Working Drafts Pubblici
+	\item Last Call Working Draft
+	\item Candidate Recommendation (implementazioni)
+	\item Proposed Recommendation
+	\item W2C Recommendation (Web Standard, Dicembre 2008)
+\end{itemize}
+\subsubsection{Che cosa porta WCAG 2}
+\begin{itemize}
+	\item Applicata a tecnologie avanzate
+	\item Criteri chiari e verificabili
+	\item Flessibilità, indipendente dalla tecnologia, adattabile a tecniche e situazioni diverse
+	\item Supporto per scripting (validazione e altert lato client, progressive enhancement, avvisi, funzioni del DOM), animazioni
+	\item Supporto esteso (es applicazioni WAI-ARIA, fornisce info su come utilizzare gli elementi di interfaccia), con materiali ed esempi di implementazione
+\end{itemize}
+\subsubsection{WCAG 2.0 in dettaglio}
+\begin{itemize}
+	\item 4 principi: percepibile, utilizzabile, comprensibile, robusto
+	\item 12 linee guida: discendono dai principi, non sono verificabili ma foniscono il quadro di riferimento e gli obiettivi generali per comprenderne i criteri di successo e applicare le tecniche.
+	\item Criteri di successo: per ogni linee guida abbiamo uno o più criteri di successo verificabili. Vengono definiti tre livelli di conformità: A, AA, AAA.
+	\item Tecniche sufficienti e consigliate: per ciascuna linea guida e criterio di successo, il gruppo ha proposto una sere di tecniche informative. Queste tecniche sono divise in due categorie: sufficienti per soddisfare il criterio di successo (CDS) e consigliate.
+	\item Pagina web: il termine pagine web include molto più che pagine HTML statiche. Si riferisce anche alle pagine web sempre più dinamiche.
+	\item Determinato programmaticamente: contenuto espresso in modo tale che i programmi utente possono estrarre informazioni per fornirle all'utente in modalità diverse.
+	\item Tecnologia compatibile con l'accessibilità
+	\item Le funzionalità della tecnologia possono essere utilizzate in modo non compatibile, fino a quando non entrano in contatto con la necessità di essere conformi a un qualsiasi CDS.
+\end{itemize}
+\subsubsection{PRINCIPIO 1: PERCEPIBILE}
+Le informazioni e i componenti dell'interfaccia utente devono essere presentati in modo che possano essere percepiti.\\
+Linee guida:
+\begin{enumerate}
+	\item Alternative testuali: fornire alternative testuali per qualsiasi contenuto non di testo, per poterlo trasformare in forme fruibili secondo le necessità degli utenti.\\
+	\subitem Criteri di successo: \\
+	\subsubitem Contenuti non testuali (A): tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione di controlli, input, tipi di media temporizzati, test, esperienze sensoriali, captcha, decorazioni, formattazioni, contenuti invisibili...
+	\item Tipi di media temporizzati: fornire alternative per i tipi di media autorizzati.
+	\subitem Criteri di successo:
+	\subsubitem Solo audio e solo video (preregistrati) (A): a meno che questi non siano contenuti alternativi ad un testo e vengono soddisfatti i seguenti punti: solo audio preregistato (forniamo un'alternativa che presenti infomazioni equivalenti al solo audio preregistrato),
+	solo video preregistrato (forniamo alternativa per il video).
+	\subsubitem Sottotitoli preregistrati (A): per tutti i tipi di audio forniamo sottotitoli sottoforma di tipi di media sincronizzati, eccetto quando l'audio è un'alternativa al testo.
+	\subsubitem Descrizione audio o tipo di media alternativo (A)
+	\subsubitem Sottotitoli in tempo reale (AA)
+	\subsubitem Descrizione audio preregistrata (AA)
+	\subsubitem Lingua dei segni preregistrata (AAA)
+	\subsubitem Descrizione audio estesa (AAA)
+	\subsubitem Tipo di media alternativo preregistrato (AAA)
+	\subsubitem Solo audio in tempo reale (AAA)
+	\item Adattabile: creare contenuti che possano essere rappresentati in modalità differenti, senza perdere informazioni o la struttura.
+	\subitem Criteri di successo:
+	\subsubitem Informazioni e correlazioni (A): informazioni strutura e correlazoni possono essere determinate programmaticamente oppure disponibili tramite testo.
+	\subsubitem Sequenza significativa (A)
+	\subsubitem Caratteristiche sensoriali (A)
+	\item Distinguibile: rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo.
+	\subsubitem Uso del colore (A): non deve essere l'unica modalità visiva per rappresentare l'informazione.
+	\subsubitem Controllo del sonoro (A): se contenuto audio dura più di 3 secondi deve essere possibile stopparlo.
+	\subsubitem Contrasto (minimo) (AA): rrapporto di contrasto di 4.5:1, ad eccezione di testo grande, testo non essenziale, logotipi.
+	\subsubitem Ridimensionamento del testo (AA): ridimensionato del 200 per cento, ad eccezione di sottotitoli ed immagini.
+	\subsubitem Immagini di testo (AA): preferibilmente usare testo, oppure immagini di testo personalizzabili.
+	\subsubitem Contrasto (avanzato) (AAA): rappresentazione visiva del testo e immagini di testo rapporto di contrasto di 7:1.
+	\subsubitem Sottofondo sonoro basso o non presente (AAA)
+	\subsubitem Presentazione visiva (AAA); colori del testo in primo piano e dello sfondo scelti dall'utente, largheza non supera 80 caratteri, testo non giustificato, testo ridimensionato fino al 200 per cento.
+	\subsubitem Immagini di testo (senza eccezioni) (AAA): immagini di testo usate solo per decorazione oppure per essenzialità.
+\end{enumerate}
+\subsubsection{PRINCIPIO 2: UTILIZZABILE}
+I componenti e l'interfaccia utente devono essere utilizzati.\\
+Linee guida:
+\begin{enumerate}
+	\item Accessibile da tastiera
+	\subitem Criteri di successo:
+	\subsubitem Tastiera (A): tutte le funzionalità del contenuto accessibili da tastiera, ad eccezione di input di movimento.
+	\subsubitem Nessun impedimento all'uso della tastiera (A): da tastiera possiamo rilasciare il focus.
+	\subsubitem Tastiera (nessuna eccezione) (AAA): no tempi specifichi per le battute.
+	\item Adeguata disponibilità di tempo
+	\subitem Criteri di successo:
+	\subsubitem Regolazione tempi di esecuzione (A): soddisfatta almeno uno tra: spegnimento, regolazione, estensione, eccezione per eventi in tempo reale, eccezione di essenzialità, eccezione delle 20 ore.
+	\subsubitem Pausa, stop, nascondi (A): nel caso di animazioni, lampeggiamenti, fornire meccanismi per mettere in pausa, stoppare o nascondere.
+	\subsubitem Nessun tempo di esecuzione (AAA): temporizzazioni non sono indispensabili per la tipologia di contenuto, ad eccezione dei tipi di media sincronizzati ed eventi in tempo reale
+	\subsubitem Interruzioni (AAA): reinviate o annullate dall'utente (ad eccezione di quelle che riguardano un'emergenza)
+	\subsubitem Reatenticazione (AAA): se scade una sessione, l'utente deve poter continuare l'attività senza perdita di dati dopo essersi autenticato.
+	\item Convulsioni: non sviluppare contenuti che possano causare attacchi epilettici.
+	\subitem Criteri di successo:
+	\subsubitem Tre lampeggiamenti o inferiore alla soglia (A): pagina web non devono contenere nulla che lampeggi per più di 3 volte al secondo, oppure il lampeggiamento è al di sotto della soglia del lampeggiamento rosso.
+	\subsubitem 3 lampeggiamenti (AAA): pagina web non devono contenere nulla che lampeggi per più di 3 volte al secondo
+	\item Navigabile: funzionalità di supporto all'utente per navigare, trovare contenuti e determinare la propria
+	 posizione.
+	\subitem Criteri di successo:
+	\subsubitem Salto di blocco (A)
+	\subsubitem Titolazione della pagina (A)
+	\subsubitem Ordine del focus (A)
+	\subsubitem Scopo del collegamento nel contesto (A)
+	\subsubitem Differenti modalità (AA)
+	\subsubitem Intestazioni ed etichette (AA)
+	\subsubitem Focus visibile (AA)
+	\subsubitem Posizione (AAA)
+	\subsubitem Scopo del collegamento (solo collegamento) (AAA)
+	\subsubitem Intestazioni di sezione (AAA)
+\end{enumerate}
+\subsubsection{PRINCIPIO 3: COMPRENSIBILE} 
+Le informazioni e le operazioni dell'interfaccia utente devono essere comprensibili.\\
+Linee guida:
+\begin{enumerate}
+	\item Leggibile: testo leggibile e comprensibile.
+	\subitem Criteri di successo:
+	\subsubitem Lingua della pagina (A)
+	\subsubitem Parti in lingua (AA)
+	\subsubitem Parole inusiali (AAA)
+	\subsubitem Abbreviazioni (AAA): rendere disponibile una modalità per identificare la forma espansa di una abbreviazione
+	\subsubitem Livello di lettura (AAA): se testo è complicato, fornire contenuti supplementari o una versione semplice
+	\subsubitem Pronuncia (AAA)
+	\item Prevedibile
+	\subitem Criteri di successo:
+	\subsubitem Al focus (A): quando un componente riceve un focus, non deve avviare automaticamente il cambio di contesto
+	\subsubitem All'input: cambiare impostazioni non provoca un cambio di contesto, a meno che l'utente non ne sia informato.
+	\subsubitem Navigazione coerente (AA)
+	\subsubitem Identificazione coerente (AA)
+	\subsubitem Cambiamenti su richiesta (AAA): cambiamenti di contesto avviati solo su richiesta degli utenti (oppure è possibile disattivarli se automatici)
+	\item Assistenza nell'inserimento.
+	\subitem Criteri di successo:
+	\subsubitem Identificazione di errori (A): elemento in errore identificato e descritto testualmente.
+	\subsubitem Etichette o istruzioni (A): fornire etichette/istruzioni quando il contenuto richiede input dall'utente
+	\subsubitem Suggerimenti per gli errori (AA): suggerimenti su come correggere gli errrori.
+	\subsubitem Prevenzione degli errori (legali, finanziari, dati (AA): implmentare almeno una tra: reversibilità (annullamento azione), controllo, conferma.
+	\subsubitem Aiuto (AAA): disponibili aiuti contestuali
+	\subsubitem Prevenzione degli errori (tutti) (AAA)
+\end{enumerate}
+\subsubsection{PRINCIPIO 4: UTILIZZABILE}
+Il contenuto deve essere abbastanza robusto per essere interpretato in maniera affidabile mediante una vasta gamma di programmi utente, comprese le tecnologie assistive.\\
+Linee guida:
+\begin{enumerate}
+	\item Compatibile: garantire la massima compatibilità con i programmi utente attuali e futuri, comprese le tecnologie assistive
+	\subitem Criteri di successo:
+	\subsubitem Analisi sintattica (parsing) (A): ID univoci, elementi possiedono tag di apertura e di chiusura, annidati in modo conforme.
+	\subsubitem Name, Role, Value (A): name e role devono essere determinati programmaticamente, stati, proprietà e valori devono essere impostabili dal programma, notifiche sui cambi di stato disponibili all'utente.
+\end{enumerate}
 \end{document}
